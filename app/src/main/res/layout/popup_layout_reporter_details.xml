@@ -24,11 +24,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1">
 
-                <!--<ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:src="@android:drawable/ic_menu_revert" />-->
-
             </LinearLayout>
 
             <LinearLayout
@@ -57,7 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="9"
-            android:padding="15dp"
+            android:padding="16dp"
             android:weightSum="6"
             android:orientation="vertical">
 

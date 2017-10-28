@@ -6,8 +6,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="2"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="2">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,9 +24,9 @@
                     android:id="@+id/DateTextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
                     android:gravity="center_vertical"
-                    android:text="Date"/>
+                    android:text="Date"
+                    android:textColor="@color/colorPrimary" />
 
             </LinearLayout>
 
@@ -44,12 +44,11 @@
                     android:id="@+id/TimeTextView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:gravity="center_vertical|end"
-                    android:text="Time" />
+                    android:text="Time"
+                    android:textColor="@color/colorPrimary" />
 
             </LinearLayout>
-
 
         </LinearLayout>
 
@@ -57,8 +56,6 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
             android:weightSum="7">
 
             <LinearLayout
@@ -71,9 +68,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="top"
+                    android:lines="1"
                     android:text="Meassage"
-                    android:textSize="15sp"
-                    android:lines="1"/>
+                    android:textSize="16sp" />
 
             </LinearLayout>
 
@@ -86,11 +83,10 @@
                 <ImageView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@drawable/forwardarrow"
-                    android:maxHeight="30px" />
+                    android:maxHeight="30px"
+                    android:src="@drawable/forwardarrow" />
 
             </LinearLayout>
-
 
         </LinearLayout>
 

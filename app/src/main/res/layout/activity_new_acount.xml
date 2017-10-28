@@ -9,8 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="10"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:weightSum="10">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -67,9 +67,9 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
-                    android:weightSum="6"
                     android:orientation="vertical"
-                    android:padding="15dp">
+                    android:padding="16dp"
+                    android:weightSum="6.5">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -84,16 +84,15 @@
                             android:gravity="center"
                             android:hint="রিপোর্টের টাইপ লিখুন"
                             android:inputType="textMultiLine"
-                            android:minHeight="50dp"
-                            android:padding="5dp" />
+                            android:minHeight="50dp" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1">
 
                         <EditText
                             android:id="@+id/ReportNameEditText"
@@ -103,16 +102,15 @@
                             android:gravity="center"
                             android:hint="রিপোর্টের নাম লিখুন"
                             android:inputType="textMultiLine"
-                            android:minHeight="50dp"
-                            android:padding="5dp" />
+                            android:minHeight="50dp" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1">
 
                         <EditText
                             android:id="@+id/ReportAdressEditText"
@@ -122,16 +120,15 @@
                             android:gravity="center"
                             android:hint="রিপোর্টের ঠিকানা লিখুন"
                             android:inputType="textMultiLine"
-                            android:minHeight="50dp"
-                            android:padding="5dp" />
+                            android:minHeight="50dp" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1">
 
                         <EditText
                             android:id="@+id/ReportUserNameEditText"
@@ -141,37 +138,154 @@
                             android:gravity="center"
                             android:hint="রব্যবহারকারীর নাম (User name)"
                             android:inputType="textMultiLine"
-                            android:minHeight="50dp"
-                            android:padding="5dp" />
+                            android:minHeight="50dp" />
 
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+                        android:layout_weight=".5">
 
-                        <EditText
-                            android:id="@+id/ReportPasswordEditText"
+                        <TextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/ractangular_border"
                             android:gravity="center"
-                            android:hint="পাসওয়ার্ড লিখুন"
-                            android:inputType="textMultiLine"
-                            android:minHeight="50dp"
-                            android:padding="5dp" />
+                            android:text="পাসওয়ার্ড প্রথম ৩টি ঘর অক্ষর এবং পরবর্তী ৩টি ঘর সংখ্যাই লিখুন ।"
+                            android:textColor="@android:color/background_dark"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
-
-
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            android:weightSum="6">
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginRight="1dp"
+                                android:background="@drawable/ractangle_left">
+
+                                <EditText
+                                    android:id="@+id/PasswordCarecterOneEditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:maxLength="1"
+                                    android:gravity="center"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="text"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginRight="1dp"
+                                android:layout_marginLeft="1dp">
+
+                                <EditText
+                                    android:id="@+id/PasswordCarecterTwoEditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#008000"
+                                    android:maxLength="1"
+                                    android:gravity="center"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="text"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginRight="1dp"
+                                android:layout_marginLeft="1dp">
+
+                                <EditText
+                                    android:id="@+id/PasswordCarecterThreeEditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#008000"
+                                    android:maxLength="1"
+                                    android:gravity="center"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="text"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginRight="1dp"
+                                android:layout_marginLeft="1dp">
+
+                                <EditText
+                                    android:id="@+id/PasswordNumberOneEditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#FF0000"
+                                    android:gravity="center"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="number"
+                                    android:maxLength="1" />
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginRight="1dp"
+                                android:layout_marginLeft="1dp">
+
+                                <EditText
+                                    android:id="@+id/PasswordNumberTwoEditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:background="#FF0000"
+                                    android:maxLength="1"
+                                    android:gravity="center"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="number"/>
+
+                            </LinearLayout>
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:layout_marginLeft="1dp"
+                                android:background="@drawable/ractangle_right">
+
+                                <EditText
+                                    android:id="@+id/PasswordNumberThreeEditText"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:maxLength="1"
+                                    android:gravity="center"
+                                    android:inputType="number"/>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="1">
 
                         <Button
                             android:id="@+id/LogInButton"

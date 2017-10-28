@@ -27,14 +27,11 @@ public class ReporterListActivity extends AppCompatActivity {
         ReporterListAdopter reporterListAdopter = new ReporterListAdopter(this, name, address);
         listView.setAdapter(reporterListAdopter);
 
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-               /* Intent in = new Intent(AdminViewActivity.this , AdminNewsViewActivity.class);
-                startActivity(in);*/
-                pop();
+               pop();
                mDialog.show();
 
             }

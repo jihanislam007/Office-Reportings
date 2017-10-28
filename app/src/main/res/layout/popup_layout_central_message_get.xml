@@ -85,14 +85,14 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:background="@drawable/ractangular_border">
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/test_demo_data"
-                            android:textSize="16sp"
-                            android:background="@drawable/ractangular_border"/>
+                            android:textSize="16sp"/>
 
                     </LinearLayout>
 
@@ -100,12 +100,11 @@
 
             </LinearLayout>
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:layout_marginTop="8dp">
 
                 <Button
                     android:id="@+id/DeleteButton"
@@ -114,7 +113,7 @@
                     android:background="@drawable/ractangular_color"
                     android:text="Cancel"
                     android:textColor="@android:color/background_light"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"/>
 
             </LinearLayout>
 

@@ -5,4 +5,5 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="loginBackground">#3a4455</color>
+    <color name="BrightBackground">#f6f7f7</color>
 </resources>

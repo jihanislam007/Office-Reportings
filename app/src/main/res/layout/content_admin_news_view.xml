@@ -16,8 +16,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:weightSum="8"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:weightSum="8">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -29,14 +29,14 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/imageView1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:id="@+id/imageView1"
-                        android:src="@drawable/camera"/>
+                        android:src="@drawable/camera" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
+                        android:layout_height="50dp"
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
@@ -52,6 +52,32 @@
 
                     </RelativeLayout>
 
+                    <RelativeLayout
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/back" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:gravity="right">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/forward" />
+
+                    </RelativeLayout>
+
                 </RelativeLayout>
 
             </LinearLayout>
@@ -59,14 +85,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="1"
-                android:padding="10dp">
+                android:layout_marginLeft="10dp"
+                android:layout_weight=".5"
+                android:padding="5dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="Reporter Name"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="18dp" />
 
                 <TextView
@@ -81,6 +109,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="Address "
+                    android:textColor="@color/colorPrimary"
                     android:textSize="18dp" />
 
                 <TextView
@@ -88,8 +117,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text=":"
+                    android:textColor="@color/colorPrimary"
                     android:textSize="18dp" />
-
 
 
             </LinearLayout>
@@ -97,14 +126,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="4"
-                android:padding="15dp">
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="4.5"
+                android:padding="5dp">
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="top"
-                    android:text="Report . . . . .  . .. "
+                    android:text="@string/test_demo_data"
                     android:textSize="18dp" />
 
             </LinearLayout>

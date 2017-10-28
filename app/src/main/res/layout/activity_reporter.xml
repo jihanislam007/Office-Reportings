@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="md.mazharul.islam.jihan.reportings.ReporterActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -25,13 +24,13 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="2.5"
-                android:padding="15dp">
+                android:padding="7dp">
 
                 <ImageView
                     android:id="@+id/GetMessageImageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@android:drawable/ic_dialog_email" />
+                    android:src="@android:drawable/ic_menu_week" />
 
             </LinearLayout>
 
@@ -74,7 +73,6 @@
             android:layout_height="0dp"
             android:layout_weight="9">
 
-
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="fill_parent"
@@ -83,8 +81,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginRight="15dp"
+                    android:padding="16dp"
                     android:orientation="vertical"
                     android:weightSum="9">
 
@@ -350,8 +347,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="2"
-                        android:paddingBottom="5dp"
-                        android:paddingTop="5dp">
+                        android:layout_marginTop="5dp">
 
                         <EditText
                             android:id="@+id/ReportEditText"
@@ -370,7 +366,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_marginBottom="15dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_weight="1">
 
                         <Button
@@ -387,7 +383,6 @@
                 </LinearLayout>
 
             </ScrollView>
-            ///////scroller will be finish///////
 
         </LinearLayout>
 

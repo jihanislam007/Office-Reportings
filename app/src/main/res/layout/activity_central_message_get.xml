@@ -23,7 +23,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:padding="15dp">
+                android:padding="16dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -59,14 +59,17 @@
             android:layout_height="0dp"
             android:layout_weight="9"
             android:orientation="vertical"
-            android:padding="5dp"
-            android:weightSum="6">
+            android:padding="8dp"
+            android:weightSum="6"
+            android:background="@color/BrightBackground">
 
             <ListView
                 android:id="@+id/CentralMessageGetListView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:divider="@color/loginBackground"></ListView>
+                android:background="@android:color/background_light"
+                android:divider="@color/loginBackground"
+                android:dividerHeight="1dp"></ListView>
 
         </LinearLayout>
 

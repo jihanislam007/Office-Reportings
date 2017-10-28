@@ -30,7 +30,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
         logInSpiner = (Spinner) findViewById(R.id.LogInSpinner);
         user_name = (EditText) findViewById(R.id.UserNameEditText);
-        password = (EditText) findViewById(R.id.PasswordEditText);
+     //   password = (EditText) findViewById(R.id.PasswordEditText);
         logIn = (Button) findViewById(R.id.LogInButton);
         forgot_pass = (TextView) findViewById(R.id.ForgotPassTextView);
 

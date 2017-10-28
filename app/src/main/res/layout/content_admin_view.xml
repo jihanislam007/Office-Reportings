@@ -6,13 +6,16 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="md.mazharul.islam.jihan.reportings.AdminViewActivity"
-    tools:showIn="@layout/app_bar_admin_view">
+    tools:showIn="@layout/app_bar_admin_view"
+    android:padding="8dp"
+    android:background="@color/BrightBackground">
 
     <ListView
         android:id="@+id/AdminNewsListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:divider="@color/loginBackground"
-        android:dividerHeight="1px"></ListView>
+        android:dividerHeight="1px"
+        android:background="@android:color/background_light"></ListView>
     
 </LinearLayout>

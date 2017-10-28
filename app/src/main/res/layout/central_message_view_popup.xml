@@ -6,7 +6,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="8"
+        android:weightSum="10"
         android:orientation="vertical">
 
         <LinearLayout
@@ -53,7 +53,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="7"
+            android:layout_weight="9"
             android:padding="15dp"
             android:weightSum="6"
             android:orientation="vertical">
@@ -62,7 +62,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:fillViewport="true">
-
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -74,7 +73,9 @@
                         android:layout_height="wrap_content"
                         android:background="@drawable/ractangular_border"
                         android:text="Hope All are well."
-                        android:textSize="18sp" />
+                        android:textSize="18sp"
+                        android:minHeight="60dp"
+                        android:padding="8dp"/>
 
                     <Button
                         android:id="@+id/LogInButton"
