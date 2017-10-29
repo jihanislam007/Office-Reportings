@@ -1,11 +1,13 @@
 package md.mazharul.islam.jihan.reportings;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import md.mazharul.islam.jihan.reportings.Adaptor.ReporterListAdopter;
@@ -14,6 +16,7 @@ public class ReporterListActivity extends AppCompatActivity {
 
     ListView listView;
     Dialog mDialog;
+    Button delete , edit , cancel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,14 +34,40 @@ public class ReporterListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-               pop();
-               mDialog.show();
+
+                pop();
+
+                    delete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+
+
+                        }
+                    });
+
+                    edit.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent in = new Intent(ReporterListActivity.this , NewAcountActivity.class);
+                            startActivity(in);
+                        }
+                     });
+
+                    cancel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            finish();
+                        }
+                    });
+
+                mDialog.show();
 
             }
         });
 
         ///////////////////listView/////////////////////////////
     }
+
 
     ////////////////for popup////////////////////////
     public void pop() {
@@ -47,9 +76,9 @@ public class ReporterListActivity extends AppCompatActivity {
         mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         mDialog.setContentView(R.layout.popup_layout_reporter_details);
 
-        /*firstcall = (ImageView) mDialog.findViewById(R.id.firstcallimageView);
-        secondcall = (ImageView) mDialog.findViewById(R.id.secondcallimageView);
-        thirdcall = (ImageView) mDialog.findViewById(R.id.thirdcallimageView);*/
+        delete = (Button) mDialog.findViewById(R.id.DeleteButton);
+        edit = (Button) mDialog.findViewById(R.id.EditButton);
+        cancel = (Button) mDialog.findViewById(R.id.CncelButton);
 
     }
     ////////////////for popup////////////////////////

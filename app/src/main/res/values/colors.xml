@@ -6,4 +6,7 @@
 
     <color name="loginBackground">#3a4455</color>
     <color name="BrightBackground">#f6f7f7</color>
+
+    <color name="GreenBackground">#388E3C</color>
+    <color name="RedBackground">#FF5252</color>
 </resources>

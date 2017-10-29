@@ -7,7 +7,6 @@
     tools:context="md.mazharul.islam.jihan.reportings.LogInActivity"
     android:background="@color/loginBackground">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -83,6 +82,7 @@
                 android:background="@drawable/rectangular_white"
                 android:gravity="center"
                 android:hint="User Name"
+                android:textColorHint="@color/loginBackground"
                 android:inputType="textAutoComplete" />
 
         </LinearLayout>
@@ -111,7 +111,8 @@
                     android:maxLength="1"
                     android:gravity="center"
                     android:imeOptions="actionNext"
-                    android:inputType="text"/>
+                    android:inputType="text"
+                    android:background="@null"/>
 
             </LinearLayout>
             <LinearLayout
@@ -125,7 +126,7 @@
                     android:id="@+id/PasswordCarecterTwoEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#008000"
+                    android:background="@color/GreenBackground"
                     android:maxLength="1"
                     android:gravity="center"
                     android:imeOptions="actionNext"
@@ -143,7 +144,7 @@
                 android:id="@+id/PasswordCarecterThreeEditText"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#008000"
+                android:background="@color/GreenBackground"
                 android:maxLength="1"
                 android:gravity="center"
                 android:imeOptions="actionNext"
@@ -161,7 +162,7 @@
                     android:id="@+id/PasswordNumberOneEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FF0000"
+                    android:background="@color/RedBackground"
                     android:gravity="center"
                     android:imeOptions="actionNext"
                     android:inputType="number"
@@ -179,7 +180,7 @@
                     android:id="@+id/PasswordNumberTwoEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="#FF0000"
+                    android:background="@color/RedBackground"
                     android:maxLength="1"
                     android:gravity="center"
                     android:imeOptions="actionNext"
@@ -199,7 +200,8 @@
                     android:layout_height="match_parent"
                     android:maxLength="1"
                     android:gravity="center"
-                    android:inputType="number"/>
+                    android:inputType="number"
+                    android:background="@null"/>
 
             </LinearLayout>
 
@@ -220,7 +222,7 @@
                 android:layout_height="match_parent"
                 android:background="@drawable/ractangular_color"
                 android:text="Log In"
-                android:textColor="@android:color/background_light"
+                android:textColor="@color/loginBackground"
                 android:textSize="24sp" />
 
         </LinearLayout>

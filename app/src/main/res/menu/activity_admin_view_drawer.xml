@@ -14,10 +14,10 @@
             android:id="@+id/nav_slideshow"
             android:icon="@android:drawable/ic_menu_add"
             android:title="নতুন রিপোর্টার তৈরি করুন" />
-        <!--<item
-            android:id="@+id/nav_manage"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Tools" />-->
+        <item
+            android:id="@+id/passwod_change"
+            android:icon="@android:drawable/ic_menu_mylocation"
+            android:title="এডমিন পাসওয়ার্ড পরিবর্তন করুন " />
     </group>
 
     <item android:title="">

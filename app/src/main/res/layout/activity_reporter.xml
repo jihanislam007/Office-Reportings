@@ -30,7 +30,7 @@
                     android:id="@+id/GetMessageImageView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:src="@android:drawable/ic_menu_week" />
+                    android:src="@android:drawable/ic_menu_day" />
 
             </LinearLayout>
 

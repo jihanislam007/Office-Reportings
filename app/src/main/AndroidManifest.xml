@@ -31,7 +31,9 @@
         <activity android:name=".GenarelMessageSendActivity" />
         <activity android:name=".NewAcountActivity" />
         <activity android:name=".ReporterListActivity" />
-        <activity android:name=".CentralMessageGetActivity"></activity>
+        <activity android:name=".CentralMessageGetActivity" />
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".AdminPasswordChangActivity"></activity>
     </application>
 
 </manifest>

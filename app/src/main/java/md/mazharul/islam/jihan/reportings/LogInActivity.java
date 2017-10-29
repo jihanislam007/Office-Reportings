@@ -80,6 +80,14 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                 }
             });
         }
+
+        forgot_pass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(LogInActivity.this , ForgotPasswordActivity.class);
+                startActivity(in);
+            }
+        });
         /*// Showing selected spinner item
         Toast.makeText(parent.getContext(), "Selected: " + item + id, Toast.LENGTH_LONG).show();*/
     }

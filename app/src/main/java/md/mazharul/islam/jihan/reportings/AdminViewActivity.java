@@ -124,9 +124,11 @@ public class AdminViewActivity extends AppCompatActivity
         } else if (id == R.id.nav_slideshow) {
             Intent in = new Intent(AdminViewActivity.this , NewAcountActivity.class);
             startActivity(in);
-        } /*else if (id == R.id.nav_manage) {
+        } else if (id == R.id.passwod_change) {
+            Intent in = new Intent(AdminViewActivity.this , AdminPasswordChangActivity.class);
+            startActivity(in);
 
-        } else if (id == R.id.nav_share) {
+        }/* else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
 

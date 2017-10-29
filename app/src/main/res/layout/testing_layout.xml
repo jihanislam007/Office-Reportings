@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="md.mazharul.islam.jihan.reportings.AdminNewsViewActivity"
-    tools:showIn="@layout/activity_admin_news_view">
+    android:layout_height="match_parent">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -16,13 +11,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:weightSum="10"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="150dp"
-                android:padding="5dp"
-                android:visibility="gone">
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:padding="5dp">
 
                 <VideoView
                     android:id="@+id/VideoViewVideoView"
@@ -33,9 +29,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="170dp"
-                android:padding="5dp"
-                android:background="@drawable/camera">
+                android:layout_height="0dp"
+                android:layout_weight="2">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -52,7 +47,7 @@
                         android:layout_alignParentBottom="true"
                         android:layout_alignParentLeft="true"
                         android:layout_alignParentStart="true"
-                        android:background="#70000000">
+                        android:background="#80000000">
 
                         <TextView
                             android:id="@+id/HeaderTextView"
@@ -71,7 +66,8 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:padding="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
@@ -113,14 +109,15 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="5"
                 android:padding="5dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:text="@string/test_demo_data"/>
 
             </LinearLayout>
