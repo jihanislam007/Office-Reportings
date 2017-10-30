@@ -11,7 +11,7 @@ import md.mazharul.islam.jihan.reportings.R;
 public class NewAcountActivity extends AppCompatActivity {
     EditText PasswordCarecterOneEditText,PasswordCarecterTwoEditText,PasswordCarecterThreeEditText,PasswordNumberOneEditText,PasswordNumberTwoEditText,PasswordNumberThreeEditText;
 
-    EditText reporter_type;
+    EditText reporter_type , reporter_name , reporter_address , user_name;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,6 +23,12 @@ public class NewAcountActivity extends AppCompatActivity {
         PasswordNumberOneEditText= (EditText) findViewById(R.id.PasswordNumberOneEditText);
         PasswordNumberTwoEditText= (EditText) findViewById(R.id.PasswordNumberTwoEditText);
         PasswordNumberThreeEditText= (EditText) findViewById(R.id.PasswordNumberThreeEditText);
+
+
+        reporter_type= (EditText) findViewById(R.id.ReportTypeEditText);
+        reporter_name= (EditText) findViewById(R.id.ReportNameEditText);
+        reporter_address= (EditText) findViewById(R.id.ReportAdressEditText);
+        user_name= (EditText) findViewById(R.id.ReportUserNameEditText);
 
         editTextFocusController();
     }
