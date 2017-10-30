@@ -18,8 +18,8 @@ public class ReporterActivity extends AppCompatActivity {
     TextView logout;
 
     ImageView getMessage;
-    ImageView picture;
-    ImageView video;
+    LinearLayout picture;
+    LinearLayout video;
     ImageView pre1;
     ImageView pre2;
     ImageView pre3;
@@ -47,8 +47,8 @@ public class ReporterActivity extends AppCompatActivity {
         logout = (TextView) findViewById(R.id.LogOutTextView);
 
         getMessage = (ImageView) findViewById(R.id.GetMessageImageView);
-        picture = (ImageView) findViewById(R.id.PictureImageView);
-        video = (ImageView) findViewById(R.id.videoImageView);
+        picture = (LinearLayout) findViewById(R.id.PictureImageViewLayout);
+        video = (LinearLayout) findViewById(R.id.videoImageViewLayout);
         pre1 = (ImageView) findViewById(R.id.PreviewOneImageView);
         pre2 = (ImageView) findViewById(R.id.PreviewTwoImageView);
         pre3 = (ImageView) findViewById(R.id.PreviewThreeImageView);
