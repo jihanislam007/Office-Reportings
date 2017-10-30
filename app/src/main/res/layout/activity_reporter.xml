@@ -75,8 +75,7 @@
 
             <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="fill_parent"
-                android:fillViewport="true">
+                android:layout_height="fill_parent">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -196,8 +195,7 @@
                         android:id="@+id/ImagePreviewLayout"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:visibility="gone">
+                        android:layout_weight="1">
 
                         <HorizontalScrollView
                             android:layout_width="match_parent"
@@ -210,7 +208,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:orientation="horizontal"
-                                android:weightSum="5">
+                                android:weightSum="3">
 
                                 <LinearLayout
                                     android:layout_width="0dp"
@@ -225,7 +223,6 @@
                                         android:src="@android:drawable/ic_menu_gallery" />
 
                                 </LinearLayout>
-
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
@@ -239,7 +236,6 @@
                                         android:src="@android:drawable/ic_menu_gallery" />
 
                                 </LinearLayout>
-
                                 <LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
@@ -247,34 +243,6 @@
 
                                     <ImageView
                                         android:id="@+id/PreviewThreeImageView"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:maxHeight="40dp"
-                                        android:src="@android:drawable/ic_menu_gallery" />
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
-
-                                    <ImageView
-                                        android:id="@+id/PreviewFourImageView"
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent"
-                                        android:maxHeight="40dp"
-                                        android:src="@android:drawable/ic_menu_gallery" />
-
-                                </LinearLayout>
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
-
-                                    <ImageView
-                                        android:id="@+id/PreviewFiveImageView"
                                         android:layout_width="match_parent"
                                         android:layout_height="match_parent"
                                         android:maxHeight="40dp"
@@ -292,14 +260,13 @@
                         android:id="@+id/VideoPreviewLayout"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:visibility="gone">
+                        android:layout_weight="1">
 
                         <VideoView
                             android:id="@+id/videoPreviewImageView"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:maxHeight="150dp" />
+                            android:maxHeight="300dp" />
 
                     </LinearLayout>
 
