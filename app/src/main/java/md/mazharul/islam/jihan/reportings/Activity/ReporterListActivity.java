@@ -1,4 +1,4 @@
-package md.mazharul.islam.jihan.reportings;
+package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.app.Dialog;
 import android.content.Intent;
@@ -10,7 +10,8 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import md.mazharul.islam.jihan.reportings.Adaptor.ReporterListAdopter;
+import md.mazharul.islam.jihan.reportings.Adapter.ReporterListAdopter;
+import md.mazharul.islam.jihan.reportings.R;
 
 public class ReporterListActivity extends AppCompatActivity {
 

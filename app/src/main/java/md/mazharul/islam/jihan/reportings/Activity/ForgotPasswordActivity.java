@@ -1,9 +1,11 @@
-package md.mazharul.islam.jihan.reportings;
+package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+
+import md.mazharul.islam.jihan.reportings.R;
 
 public class ForgotPasswordActivity extends AppCompatActivity {
 

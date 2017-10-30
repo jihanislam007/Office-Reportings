@@ -1,4 +1,4 @@
-package md.mazharul.islam.jihan.reportings;
+package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.VideoView;
+
+import md.mazharul.islam.jihan.reportings.R;
 
 public class AdminNewsViewActivity extends AppCompatActivity {
 

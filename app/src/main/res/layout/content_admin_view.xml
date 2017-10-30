@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="md.mazharul.islam.jihan.reportings.AdminViewActivity"
+    tools:context="md.mazharul.islam.jihan.reportings.Activity.AdminViewActivity"
     tools:showIn="@layout/app_bar_admin_view"
     android:padding="8dp"
     android:background="@color/BrightBackground">

@@ -1,4 +1,4 @@
-package md.mazharul.islam.jihan.reportings;
+package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
+
+import md.mazharul.islam.jihan.reportings.R;
 
 public class ReporterActivity extends AppCompatActivity {
 

@@ -1,8 +1,5 @@
-package md.mazharul.islam.jihan.reportings.Adaptor;
+package md.mazharul.islam.jihan.reportings.Adapter;
 
-/**
- * Created by Jihan on 11-Oct-17.
- */
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,21 +9,21 @@ import android.widget.TextView;
 
 import md.mazharul.islam.jihan.reportings.R;
 
-public class AdminListViewAdaptor extends BaseAdapter
-{
+/**
+ * Created by Jihan on 11-Oct-17.
+ */
+
+public class ReporterListAdopter extends BaseAdapter {
+
     Activity context;
     String name[];
     String address[];
-    String time[];
-    String news[];
 
-    public AdminListViewAdaptor(Activity context, String[] name, String[] address , String[] time ,String[] news) {
+    public ReporterListAdopter(Activity context, String[] name, String[] address ) {
         super();
         this.context = context;
         this.name = name;
         this.address = address;
-        this.time = time;
-        this.news = news;
     }
     public int getCount() {
         // TODO Auto-generated method stub
@@ -40,37 +37,31 @@ public class AdminListViewAdaptor extends BaseAdapter
         // TODO Auto-generated method stub
         return 0;
     }
-    private class ViewHolder {
+    private class ViewHolderList {
         TextView nameText;
         TextView addresstxt;
-        TextView timetxt;
-        TextView newstxt;
     }
     public View getView(int position, View convertView, ViewGroup parent)
     {
         // TODO Auto-generated method stub
-        ViewHolder holder;
+        ReporterListAdopter.ViewHolderList holder;
         LayoutInflater inflater =  context.getLayoutInflater();
 
         if (convertView == null)
         {
-            convertView = inflater.inflate(R.layout.custom_listview_admin_view, null);
-            holder = new ViewHolder();
+            convertView = inflater.inflate(R.layout.custom_listview_reporter_list, null);
+            holder = new ReporterListAdopter.ViewHolderList();
             holder.nameText = (TextView) convertView.findViewById(R.id.NameTextView);
             holder.addresstxt = (TextView) convertView.findViewById(R.id.AddressTextView);
-            holder.timetxt = (TextView) convertView.findViewById(R.id.TimeTextView);
-            holder.newstxt = (TextView) convertView.findViewById(R.id.NewsTextView);
             convertView.setTag(holder);
         }
         else
         {
-            holder = (ViewHolder) convertView.getTag();
+            holder = (ReporterListAdopter.ViewHolderList) convertView.getTag();
         }
 
         holder.nameText.setText(name[position]);
         holder.addresstxt.setText(address[position]);
-        holder.timetxt.setText(time[position]);
-        holder.newstxt.setText(news[position]);
 
         return convertView;
     }

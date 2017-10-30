@@ -1,4 +1,4 @@
-package md.mazharul.islam.jihan.reportings;
+package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,7 +14,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import md.mazharul.islam.jihan.reportings.Adaptor.AdminListViewAdaptor;
+import md.mazharul.islam.jihan.reportings.Adapter.AdminListViewAdaptor;
+import md.mazharul.islam.jihan.reportings.R;
 
 public class AdminViewActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

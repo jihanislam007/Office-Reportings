@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="md.mazharul.islam.jihan.reportings">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -11,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LogInActivity"
+            android:name=".Activity.LogInActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,21 +20,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ReporterActivity" />
+        <activity android:name=".Activity.ReporterActivity" />
         <activity
-            android:name=".AdminViewActivity"
+            android:name=".Activity.AdminViewActivity"
             android:label="@string/title_activity_admin_view"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".AdminNewsViewActivity"
+            android:name=".Activity.AdminNewsViewActivity"
             android:label="@string/title_activity_admin_news_view"
             android:theme="@style/AppTheme" />
-        <activity android:name=".GenarelMessageSendActivity" />
-        <activity android:name=".NewAcountActivity" />
-        <activity android:name=".ReporterListActivity" />
-        <activity android:name=".CentralMessageGetActivity" />
-        <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".AdminPasswordChangActivity"></activity>
+        <activity android:name=".Activity.GenarelMessageSendActivity" />
+        <activity android:name=".Activity.NewAcountActivity" />
+        <activity android:name=".Activity.ReporterListActivity" />
+        <activity android:name=".Activity.CentralMessageGetActivity" />
+        <activity android:name=".Activity.ForgotPasswordActivity" />
+        <activity android:name=".Activity.AdminPasswordChangActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package md.mazharul.islam.jihan.reportings;
+package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.app.Dialog;
 import android.support.v7.app.AppCompatActivity;
@@ -8,7 +8,8 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import md.mazharul.islam.jihan.reportings.Adaptor.CentralMessageGetAdaptor;
+import md.mazharul.islam.jihan.reportings.Adapter.CentralMessageGetAdaptor;
+import md.mazharul.islam.jihan.reportings.R;
 
 public class CentralMessageGetActivity extends AppCompatActivity {
 

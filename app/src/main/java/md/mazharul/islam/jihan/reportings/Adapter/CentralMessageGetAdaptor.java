@@ -1,4 +1,4 @@
-package md.mazharul.islam.jihan.reportings.Adaptor;
+package md.mazharul.islam.jihan.reportings.Adapter;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
