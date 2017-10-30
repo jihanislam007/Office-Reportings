@@ -11,6 +11,7 @@ import md.mazharul.islam.jihan.reportings.R;
 public class NewAcountActivity extends AppCompatActivity {
     EditText PasswordCarecterOneEditText,PasswordCarecterTwoEditText,PasswordCarecterThreeEditText,PasswordNumberOneEditText,PasswordNumberTwoEditText,PasswordNumberThreeEditText;
 
+    EditText reporter_type;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
