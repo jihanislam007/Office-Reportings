@@ -1,6 +1,8 @@
 package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -11,12 +13,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
-import java.io.File;
+import com.zhihu.matisse.Matisse;
+import com.zhihu.matisse.MimeType;
+import com.zhihu.matisse.engine.impl.GlideEngine;
+import com.zhihu.matisse.filter.Filter;
+
 import java.util.List;
 
 import md.mazharul.islam.jihan.reportings.R;
-import pl.aprilapps.easyphotopicker.DefaultCallback;
-import pl.aprilapps.easyphotopicker.EasyImage;
 
 public class ReporterActivity extends AppCompatActivity {
 
@@ -51,9 +55,7 @@ public class ReporterActivity extends AppCompatActivity {
 
 
 
-        EasyImage.configuration(this)
-                .setImagesFolderName("AOS")
-                .setAllowMultiplePickInGallery(true);
+
         logout = (TextView) findViewById(R.id.LogOutTextView);
 
         getMessage = (ImageView) findViewById(R.id.GetMessageImageView);
@@ -63,11 +65,20 @@ public class ReporterActivity extends AppCompatActivity {
         pre2 = (ImageView) findViewById(R.id.PreviewTwoImageView);
         pre3 = (ImageView) findViewById(R.id.PreviewThreeImageView);
         Cancelpre1 = (ImageView) findViewById(R.id.CancelPreviewOneimageView);
+
+
+
         Cancelpre2 = (ImageView) findViewById(R.id.CancelPreviewTwoimageView);
         Cancelpre3 = (ImageView) findViewById(R.id.CancelPreviewThreeimageView);
 
         videoPreview = (VideoView) findViewById(R.id.videoPreviewVideoView);
         CancelpreVideo = (ImageView) findViewById(R.id.CancelvideoPreviewimageView);
+        CancelpreVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                videoPreviewlayout.setVisibility(View.GONE);
+            }
+        });
 
         reportingAddress = (EditText) findViewById(R.id.ReportAdressEditText);
         reportHeading = (EditText) findViewById(R.id.HeadingEditText);
@@ -88,14 +99,31 @@ public class ReporterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imagePreviewlayout.setVisibility(View.VISIBLE);
-                EasyImage.openGallery(ReporterActivity.this, 0);
+                Matisse.from(ReporterActivity.this)
+                        .choose(MimeType.ofImage())
+                        .showSingleMediaType(true)
+                        .countable(true)
+                        .maxSelectable(3)
+                        .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+                        .thumbnailScale(0.85f)
+                        .imageEngine(new GlideEngine())
+                        .forResult(111);
             }
         });
 
         video.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                videoPreviewlayout.setVisibility(View.VISIBLE);
+
+                Matisse.from(ReporterActivity.this)
+                        .choose(MimeType.ofVideo())
+                        .showSingleMediaType(true)
+                        .countable(true)
+                        .maxSelectable(1)
+                        .restrictOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED)
+                        .thumbnailScale(0.85f)
+                        .imageEngine(new GlideEngine())
+                        .forResult(112);
             }
         });
 
@@ -111,18 +139,21 @@ public class ReporterActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 111 && resultCode == RESULT_OK) {
+            List<Uri> uris= Matisse.obtainResult(data);
 
-        EasyImage.handleActivityResult(requestCode, resultCode, data, this, new DefaultCallback() {
-            @Override
-            public void onImagePickerError(Exception e, EasyImage.ImageSource source, int type) {
-                //Some error handling
+        }
+
+        if (requestCode == 112 && resultCode == RESULT_OK) {
+            List<Uri> uris= Matisse.obtainResult(data);
+            if(uris.size()>=1){
+                videoPreview.setVideoURI(uris.get(0));
+                videoPreview.seekTo(5000);
+                videoPreviewlayout.setVisibility(View.VISIBLE);
             }
 
-            @Override
-            public void onImagesPicked(List<File> imagesFiles, EasyImage.ImageSource source, int type) {
-                System.out.println("List foundrapidpr");
-            }
-        });
+        }
 
     }
+
 }
