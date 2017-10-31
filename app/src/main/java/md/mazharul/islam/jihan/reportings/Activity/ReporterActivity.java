@@ -11,7 +11,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import java.io.File;
+import java.util.List;
+
 import md.mazharul.islam.jihan.reportings.R;
+import pl.aprilapps.easyphotopicker.DefaultCallback;
+import pl.aprilapps.easyphotopicker.EasyImage;
 
 public class ReporterActivity extends AppCompatActivity {
 
@@ -42,6 +47,11 @@ public class ReporterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reporter);
 
+
+
+        EasyImage.configuration(this)
+                .setImagesFolderName("AOS")
+                .setAllowMultiplePickInGallery(true);
         logout = (TextView) findViewById(R.id.LogOutTextView);
 
         getMessage = (ImageView) findViewById(R.id.GetMessageImageView);
@@ -74,6 +84,7 @@ public class ReporterActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imagePreviewlayout.setVisibility(View.VISIBLE);
+                EasyImage.openGallery(ReporterActivity.this, 0);
             }
         });
 
@@ -91,5 +102,23 @@ public class ReporterActivity extends AppCompatActivity {
                 startActivity(in);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        EasyImage.handleActivityResult(requestCode, resultCode, data, this, new DefaultCallback() {
+            @Override
+            public void onImagePickerError(Exception e, EasyImage.ImageSource source, int type) {
+                //Some error handling
+            }
+
+            @Override
+            public void onImagesPicked(List<File> imagesFiles, EasyImage.ImageSource source, int type) {
+                System.out.println("List foundrapidpr");
+            }
+        });
+
     }
 }

@@ -37,7 +37,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
     EditText password;
     Button logIn;
     TextView forgot_pass;
-    EditText PasswordCarecterOneEditText,PasswordCarecterTwoEditText,PasswordCarecterThreeEditText,PasswordNumberOneEditText,PasswordNumberTwoEditText,PasswordNumberThreeEditText;
+    EditText PasswordCarecterOneEditText, PasswordCarecterTwoEditText, PasswordCarecterThreeEditText, PasswordNumberOneEditText, PasswordNumberTwoEditText, PasswordNumberThreeEditText;
 
 
     @Override
@@ -45,17 +45,17 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
-        PasswordCarecterOneEditText= (EditText) findViewById(R.id.PasswordCarecterOneEditText);
-        PasswordCarecterTwoEditText= (EditText) findViewById(R.id.PasswordCarecterTwoEditText);
-        PasswordCarecterThreeEditText= (EditText) findViewById(R.id.PasswordCarecterThreeEditText);
-        PasswordNumberOneEditText= (EditText) findViewById(R.id.PasswordNumberOneEditText);
-        PasswordNumberTwoEditText= (EditText) findViewById(R.id.PasswordNumberTwoEditText);
-        PasswordNumberThreeEditText= (EditText) findViewById(R.id.PasswordNumberThreeEditText);
+        PasswordCarecterOneEditText = (EditText) findViewById(R.id.PasswordCarecterOneEditText);
+        PasswordCarecterTwoEditText = (EditText) findViewById(R.id.PasswordCarecterTwoEditText);
+        PasswordCarecterThreeEditText = (EditText) findViewById(R.id.PasswordCarecterThreeEditText);
+        PasswordNumberOneEditText = (EditText) findViewById(R.id.PasswordNumberOneEditText);
+        PasswordNumberTwoEditText = (EditText) findViewById(R.id.PasswordNumberTwoEditText);
+        PasswordNumberThreeEditText = (EditText) findViewById(R.id.PasswordNumberThreeEditText);
 
         editTextFocusController();
         logInSpiner = (Spinner) findViewById(R.id.LogInSpinner);
         user_name = (EditText) findViewById(R.id.UserNameEditText);
-     //   password = (EditText) findViewById(R.id.PasswordEditText);
+        //   password = (EditText) findViewById(R.id.PasswordEditText);
         logIn = (Button) findViewById(R.id.LogInButton);
         forgot_pass = (TextView) findViewById(R.id.ForgotPassTextView);
 
@@ -79,12 +79,13 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
         ///////////////Spinner////////////////////////////
     }
 
-    public String getPassword(){
-        return PasswordCarecterOneEditText.getText().toString()+PasswordCarecterTwoEditText.getText().toString()+
-                PasswordCarecterThreeEditText.getText().toString()+PasswordNumberOneEditText.getText().toString()+
-                PasswordNumberTwoEditText.getText().toString()+PasswordNumberThreeEditText.getText().toString();
+    public String getPassword() {
+        return PasswordCarecterOneEditText.getText().toString() + PasswordCarecterTwoEditText.getText().toString() +
+                PasswordCarecterThreeEditText.getText().toString() + PasswordNumberOneEditText.getText().toString() +
+                PasswordNumberTwoEditText.getText().toString() + PasswordNumberThreeEditText.getText().toString();
     }
 
+    //Focus controller for password
     private void editTextFocusController() {
         PasswordCarecterOneEditText.addTextChangedListener(new TextWatcher() {
             @Override
@@ -94,7 +95,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length()>=1){
+                if (s.length() >= 1) {
                     PasswordCarecterOneEditText.clearFocus();
                     PasswordCarecterTwoEditText.requestFocus();
                     PasswordCarecterTwoEditText.setCursorVisible(true);
@@ -114,7 +115,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length()>=1){
+                if (s.length() >= 1) {
                     PasswordCarecterTwoEditText.clearFocus();
                     PasswordCarecterThreeEditText.requestFocus();
                     PasswordCarecterThreeEditText.setCursorVisible(true);
@@ -134,7 +135,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length()>=1){
+                if (s.length() >= 1) {
                     PasswordCarecterThreeEditText.clearFocus();
                     PasswordNumberOneEditText.requestFocus();
                     PasswordNumberOneEditText.setCursorVisible(true);
@@ -155,7 +156,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length()>=1){
+                if (s.length() >= 1) {
                     PasswordNumberOneEditText.clearFocus();
                     PasswordNumberTwoEditText.requestFocus();
                     PasswordNumberTwoEditText.setCursorVisible(true);
@@ -175,7 +176,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length()>=1){
+                if (s.length() >= 1) {
                     PasswordNumberTwoEditText.clearFocus();
                     PasswordNumberThreeEditText.requestFocus();
                     PasswordNumberThreeEditText.setCursorVisible(true);
@@ -187,7 +188,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
             }
         });
-        PasswordCarecterOneEditText.addTextChangedListener(new TextWatcher() {
+        PasswordCarecterOneEditText.addTextChangedListener(new TextWatcher () {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -195,7 +196,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(s.length()>=1){
+                if (s.length() >= 1) {
                     PasswordNumberThreeEditText.clearFocus();
                 }
             }
@@ -207,7 +208,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
         });
 
 
-               // ,,,,
+        // ,,,,
     }
 
     //////////////////Spinner///////////////
@@ -216,26 +217,26 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
         /*// On selecting a spinner item
         String item = parent.getItemAtPosition(position).toString();*/
 
-        if(position ==0 ){
+        if (position == 0) {
             forgot_pass.setVisibility(View.INVISIBLE);
             logIn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    AsyncHttpClient client=new AsyncHttpClient();
-                    RequestParams params=new RequestParams();
-                    params.add("username",user_name.getText().toString());
-                    params.add("password",getPassword());
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    RequestParams params = new RequestParams();
+                    params.add("username", user_name.getText().toString());
+                    params.add("password", getPassword());
 
-                    client.post(ServerInfo.BASE_URL+"ReporterLogin/",params,new JsonHttpResponseHandler(){
+                    client.post(ServerInfo.BASE_URL + "ReporterLogin/", params, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             try {
-                                if(response.getBoolean("res")){
+                                if (response.getBoolean("res")) {
                                     Toast.makeText(LogInActivity.this, "Successfully login", Toast.LENGTH_SHORT).show();
-                                    Intent in = new Intent(LogInActivity.this , ReporterActivity.class);
+                                    Intent in = new Intent(LogInActivity.this, ReporterActivity.class);
                                     startActivity(in);
-                                }else{
+                                } else {
                                     Toast.makeText(LogInActivity.this, "User name or password invalid", Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
@@ -247,28 +248,26 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
                 }
             });
-        }
-
-        else if(position == 1){
+        } else if (position == 1) {
             forgot_pass.setVisibility(View.VISIBLE);
             logIn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
 
-                    AsyncHttpClient client=new AsyncHttpClient();
-                    RequestParams params=new RequestParams();
-                    params.add("username",user_name.getText().toString());
-                    params.add("password",getPassword());
-                    client.post(ServerInfo.BASE_URL+"Login/",params,new JsonHttpResponseHandler(){
+                    AsyncHttpClient client = new AsyncHttpClient();
+                    RequestParams params = new RequestParams();
+                    params.add("username", user_name.getText().toString());
+                    params.add("password", getPassword());
+                    client.post(ServerInfo.BASE_URL + "Login/", params, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             try {
-                                if(response.getBoolean("res")){
+                                if (response.getBoolean("res")) {
                                     Toast.makeText(LogInActivity.this, "Successfully login", Toast.LENGTH_SHORT).show();
-                                    Intent in = new Intent(LogInActivity.this , AdminViewActivity.class);
+                                    Intent in = new Intent(LogInActivity.this, AdminViewActivity.class);
                                     startActivity(in);
 
-                                }else{
+                                } else {
                                     Toast.makeText(LogInActivity.this, "User name or password invalid", Toast.LENGTH_SHORT).show();
                                 }
                             } catch (JSONException e) {
@@ -284,13 +283,14 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
         forgot_pass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(LogInActivity.this , ForgotPasswordActivity.class);
+                Intent in = new Intent(LogInActivity.this, ForgotPasswordActivity.class);
                 startActivity(in);
             }
         });
         /*// Showing selected spinner item
         Toast.makeText(parent.getContext(), "Selected: " + item + id, Toast.LENGTH_LONG).show();*/
     }
+
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
     }
