@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -128,7 +128,7 @@
                             android:layout_height="match_parent"
                             android:background="@drawable/ractangular_border"
                             android:gravity="center"
-                            android:hint="রব্যবহারকারীর নাম (User name)"
+                            android:hint="ব্যবহারকারীর নাম (User name)"
                             android:inputType="textMultiLine"
                             android:minHeight="50dp" />
 

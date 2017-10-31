@@ -199,12 +199,12 @@
                         android:layout_height="0dp"
                         android:layout_weight="1">
 
-                        <HorizontalScrollView
+                       <!-- <HorizontalScrollView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:fillViewport="true">
 
-                 <!--visibility has been gone but when attribute will add then visibility will active-->
+                 &lt;!&ndash;visibility has been gone but when attribute will add then visibility will active&ndash;&gt;
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -212,7 +212,7 @@
                                 android:orientation="horizontal"
                                 android:weightSum="3">
 
-                                <LinearLayout
+                                &lt;!&ndash;<LinearLayout
                                     android:layout_width="0dp"
                                     android:layout_height="match_parent"
                                     android:layout_weight="1">
@@ -298,11 +298,18 @@
                                     </RelativeLayout>
 
 
-                                </LinearLayout>
+                                </LinearLayout>&ndash;&gt;
+
+
 
                             </LinearLayout>
 
-                        </HorizontalScrollView>
+                        </HorizontalScrollView>-->
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/ImagePreviewRecyclerView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent" />
 
                     </LinearLayout>
 
