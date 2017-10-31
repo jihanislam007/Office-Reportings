@@ -23,15 +23,17 @@ public class ReporterActivity extends AppCompatActivity {
     TextView logout;
 
     ImageView getMessage;
-    ImageView picture;
-    ImageView video;
+    LinearLayout picture;
+    LinearLayout video;
     ImageView pre1;
     ImageView pre2;
     ImageView pre3;
-    ImageView pre4;
-    ImageView pre5;
+    ImageView Cancelpre1;
+    ImageView Cancelpre2;
+    ImageView Cancelpre3;
 
     VideoView videoPreview;
+    ImageView CancelpreVideo;
 
     EditText reportingAddress;
     EditText reportHeading;
@@ -55,15 +57,17 @@ public class ReporterActivity extends AppCompatActivity {
         logout = (TextView) findViewById(R.id.LogOutTextView);
 
         getMessage = (ImageView) findViewById(R.id.GetMessageImageView);
-        picture = (ImageView) findViewById(R.id.PictureImageView);
-        video = (ImageView) findViewById(R.id.videoImageView);
+        picture = (LinearLayout) findViewById(R.id.PictureImageViewLayout);
+        video = (LinearLayout) findViewById(R.id.videoImageViewLayout);
         pre1 = (ImageView) findViewById(R.id.PreviewOneImageView);
         pre2 = (ImageView) findViewById(R.id.PreviewTwoImageView);
         pre3 = (ImageView) findViewById(R.id.PreviewThreeImageView);
-        pre4 = (ImageView) findViewById(R.id.PreviewFourImageView);
-        pre5 = (ImageView) findViewById(R.id.PreviewFiveImageView);
+        Cancelpre1 = (ImageView) findViewById(R.id.CancelPreviewOneimageView);
+        Cancelpre2 = (ImageView) findViewById(R.id.CancelPreviewTwoimageView);
+        Cancelpre3 = (ImageView) findViewById(R.id.CancelPreviewThreeimageView);
 
-        videoPreview = (VideoView) findViewById(R.id.videoPreviewImageView);
+        videoPreview = (VideoView) findViewById(R.id.videoPreviewVideoView);
+        CancelpreVideo = (ImageView) findViewById(R.id.CancelvideoPreviewimageView);
 
         reportingAddress = (EditText) findViewById(R.id.ReportAdressEditText);
         reportHeading = (EditText) findViewById(R.id.HeadingEditText);
