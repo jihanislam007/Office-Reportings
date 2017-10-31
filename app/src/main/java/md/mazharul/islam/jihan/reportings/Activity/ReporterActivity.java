@@ -1,6 +1,7 @@
 package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -14,7 +15,6 @@ import android.widget.TextView;
 import android.widget.VideoView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 import md.mazharul.islam.jihan.reportings.Adapter.RecycleViewAdaptor;
 import md.mazharul.islam.jihan.reportings.R;
@@ -49,7 +49,8 @@ public class ReporterActivity extends AppCompatActivity {
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView.Adapter mAdapter;
   //  ArrayList<String> alName;
-    ArrayList<Integer> alImage;
+    ArrayList<Uri> alImage;
+    ArrayList<Uri> crossImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +83,8 @@ public class ReporterActivity extends AppCompatActivity {
 
         //////////////////////////Recycle view/////////////////////////////
 
-        alImage = new ArrayList<>(Arrays.asList(R.drawable.camera, R.drawable.camera, R.drawable.camera));
+      //  alImage = new ArrayList<>(Arrays.asList(R.drawable.camera, R.drawable.camera, R.drawable.camera));
+      //  crossImage = new ArrayList<>(Arrays.asList(R.drawable.camera, R.drawable.camera, R.drawable.camera));
 
         // Calling the RecyclerView
         mRecyclerView = (RecyclerView) findViewById(R.id.ImagePreviewRecyclerView);
@@ -92,7 +94,7 @@ public class ReporterActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new RecycleViewAdaptor(ReporterActivity.this, alImage);
+        mAdapter = new RecycleViewAdaptor(ReporterActivity.this, crossImage , alImage);
         mRecyclerView.setAdapter(mAdapter);
         //////////////////////////Recycle view/////////////////////////////
 
