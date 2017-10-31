@@ -5,6 +5,8 @@ import android.content.pm.ActivityInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +22,10 @@ import com.zhihu.matisse.filter.Filter;
 
 import java.util.List;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
+import md.mazharul.islam.jihan.reportings.Adapter.RecycleViewAdaptor;
 import md.mazharul.islam.jihan.reportings.R;
 
 public class ReporterActivity extends AppCompatActivity {
@@ -29,12 +35,12 @@ public class ReporterActivity extends AppCompatActivity {
     ImageView getMessage;
     LinearLayout picture;
     LinearLayout video;
-    ImageView pre1;
+    /*ImageView pre1;
     ImageView pre2;
     ImageView pre3;
     ImageView Cancelpre1;
     ImageView Cancelpre2;
-    ImageView Cancelpre3;
+    ImageView Cancelpre3;*/
 
     VideoView videoPreview;
     ImageView CancelpreVideo;
@@ -47,6 +53,12 @@ public class ReporterActivity extends AppCompatActivity {
 
     LinearLayout imagePreviewlayout;
     LinearLayout videoPreviewlayout;
+
+    RecyclerView mRecyclerView;
+    RecyclerView.LayoutManager mLayoutManager;
+    RecyclerView.Adapter mAdapter;
+  //  ArrayList<String> alName;
+    ArrayList<Uri> alImage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +73,7 @@ public class ReporterActivity extends AppCompatActivity {
         getMessage = (ImageView) findViewById(R.id.GetMessageImageView);
         picture = (LinearLayout) findViewById(R.id.PictureImageViewLayout);
         video = (LinearLayout) findViewById(R.id.videoImageViewLayout);
-        pre1 = (ImageView) findViewById(R.id.PreviewOneImageView);
+        /*pre1 = (ImageView) findViewById(R.id.PreviewOneImageView);
         pre2 = (ImageView) findViewById(R.id.PreviewTwoImageView);
         pre3 = (ImageView) findViewById(R.id.PreviewThreeImageView);
         Cancelpre1 = (ImageView) findViewById(R.id.CancelPreviewOneimageView);
@@ -70,7 +82,7 @@ public class ReporterActivity extends AppCompatActivity {
 
         Cancelpre2 = (ImageView) findViewById(R.id.CancelPreviewTwoimageView);
         Cancelpre3 = (ImageView) findViewById(R.id.CancelPreviewThreeimageView);
-
+*/
         videoPreview = (VideoView) findViewById(R.id.videoPreviewVideoView);
         CancelpreVideo = (ImageView) findViewById(R.id.CancelvideoPreviewimageView);
         CancelpreVideo.setOnClickListener(new View.OnClickListener() {
@@ -89,6 +101,22 @@ public class ReporterActivity extends AppCompatActivity {
         imagePreviewlayout = (LinearLayout) findViewById(R.id.ImagePreviewLayout);
         videoPreviewlayout = (LinearLayout) findViewById(R.id.VideoPreviewLayout);
 
+        //////////////////////////Recycle view/////////////////////////////
+
+        alImage = new ArrayList<>();
+
+        // Calling the RecyclerView
+        mRecyclerView = (RecyclerView) findViewById(R.id.ImagePreviewRecyclerView);
+        mRecyclerView.setHasFixedSize(true);
+
+        // The number of Columns
+        mLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+
+        mAdapter = new RecycleViewAdaptor(ReporterActivity.this, alImage);
+        mRecyclerView.setAdapter(mAdapter);
+        //////////////////////////Recycle view/////////////////////////////
+
         /////////////////////for EditText foucs start///////////////////
         reportingAddress.setSelected(false);
         reportHeading.setSelected(false);
@@ -98,7 +126,7 @@ public class ReporterActivity extends AppCompatActivity {
         picture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imagePreviewlayout.setVisibility(View.VISIBLE);
+                picture.setVisibility(View.VISIBLE);
                 Matisse.from(ReporterActivity.this)
                         .choose(MimeType.ofImage())
                         .showSingleMediaType(true)
