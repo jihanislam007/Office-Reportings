@@ -80,8 +80,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
-                    android:orientation="vertical"
                     android:padding="16dp"
+                    android:orientation="vertical"
                     android:weightSum="9">
 
                     <LinearLayout
@@ -113,11 +113,11 @@
                             android:id="@+id/PictureImageViewLayout"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/ractangular_border"
                             android:orientation="vertical"
-                            android:weightSum="5">
+                            android:weightSum="5"
+                            android:layout_marginRight="5dp">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -170,8 +170,8 @@
                                     android:id="@+id/videoImageView"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:maxHeight="60dp"
-                                    android:src="@drawable/video_icon" />
+                                    android:src="@drawable/video_icon"
+                                    android:maxHeight="60dp" />
 
                             </LinearLayout>
 
@@ -197,9 +197,116 @@
                         android:id="@+id/ImagePreviewLayout"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/camera">
+                        android:layout_weight="1">
 
+                       <!-- <HorizontalScrollView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:fillViewport="true">
+
+                 &lt;!&ndash;visibility has been gone but when attribute will add then visibility will active&ndash;&gt;
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                &lt;!&ndash;
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <ImageView
+                                            android:id="@+id/PreviewOneImageView"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:maxHeight="40dp"
+                                            android:src="@android:drawable/ic_menu_gallery" />
+
+                                        <ImageView
+                                            android:id="@+id/CancelPreviewOneimageView"
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_alignParentTop="true"
+                                            android:src="@android:drawable/presence_offline"/>
+
+                                    </RelativeLayout>
+
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <ImageView
+                                            android:id="@+id/PreviewTwoImageView"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:maxHeight="40dp"
+                                            android:src="@android:drawable/ic_menu_gallery" />
+
+                                        <ImageView
+                                            android:id="@+id/CancelPreviewTwoimageView"
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_alignParentTop="true"
+                                            app:srcCompat="@android:drawable/presence_offline" />
+
+                                    </RelativeLayout>
+
+                                </LinearLayout>
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1">
+
+                                    <RelativeLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent">
+
+                                        <ImageView
+                                            android:id="@+id/PreviewThreeImageView"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent"
+                                            android:maxHeight="40dp"
+                                            android:src="@android:drawable/ic_menu_gallery" />
+
+
+                                        <ImageView
+                                            android:id="@+id/CancelPreviewThreeimageView"
+                                            android:layout_width="30dp"
+                                            android:layout_height="30dp"
+                                            android:layout_alignParentEnd="true"
+                                            android:layout_alignParentRight="true"
+                                            android:layout_alignParentTop="true"
+                                            app:srcCompat="@android:drawable/presence_offline" />
+
+                                    </RelativeLayout>
+
+
+                                </LinearLayout>&ndash;&gt;
+
+
+
+                            </LinearLayout>
+
+                        </HorizontalScrollView>-->
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/ImagePreviewRecyclerView"
@@ -218,21 +325,21 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
-                            <VideoView
-                                android:id="@+id/videoPreviewVideoView"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:maxHeight="300dp" />
+                        <VideoView
+                            android:id="@+id/videoPreviewVideoView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:maxHeight="300dp" />
 
 
-                            <ImageView
-                                android:id="@+id/CancelvideoPreviewimageView"
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
-                                android:layout_alignParentEnd="true"
-                                android:layout_alignParentRight="true"
-                                android:layout_alignParentTop="true"
-                                app:srcCompat="@android:drawable/presence_offline" />
+                        <ImageView
+                            android:id="@+id/CancelvideoPreviewimageView"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignParentRight="true"
+                            android:layout_alignParentTop="true"
+                            app:srcCompat="@android:drawable/presence_offline" />
 
 
                         </RelativeLayout>
@@ -282,8 +389,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_weight="2">
+                        android:layout_weight="2"
+                        android:layout_marginTop="5dp">
 
                         <EditText
                             android:id="@+id/ReportEditText"
