@@ -19,6 +19,12 @@
 
         </activity>
         <activity android:name=".Activity.ReporterActivity" >
+
+        </activity>
+        <activity
+            android:name=".Activity.AdminViewActivity"
+            android:label="@string/title_activity_admin_view"
+            android:theme="@style/AppTheme" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -26,13 +32,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activity.AdminViewActivity"
-            android:label="@string/title_activity_admin_view"
-            android:theme="@style/AppTheme" />
-        <activity
             android:name=".Activity.AdminNewsViewActivity"
             android:label="@string/title_activity_admin_news_view"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme" >
+
+        </activity>
         <activity android:name=".Activity.GenarelMessageSendActivity" />
         <activity android:name=".Activity.NewAcountActivity" />
         <activity android:name=".Activity.ReporterListActivity" />

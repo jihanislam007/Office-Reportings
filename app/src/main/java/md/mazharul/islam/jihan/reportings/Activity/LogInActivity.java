@@ -1,8 +1,11 @@
 package md.mazharul.islam.jihan.reportings.Activity;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -45,6 +48,8 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
 
+        takePermission();
+
         PasswordCarecterOneEditText = (EditText) findViewById(R.id.PasswordCarecterOneEditText);
         PasswordCarecterTwoEditText = (EditText) findViewById(R.id.PasswordCarecterTwoEditText);
         PasswordCarecterThreeEditText = (EditText) findViewById(R.id.PasswordCarecterThreeEditText);
@@ -77,6 +82,15 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
         // attaching data adapter to spinner
         logInSpiner.setAdapter(dataAdapter);
         ///////////////Spinner////////////////////////////
+    }
+
+    private void takePermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            requestPermissions(new String[]{
+                    Manifest.permission.READ_EXTERNAL_STORAGE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+            },1);
+        }
     }
 
     public String getPassword() {
@@ -295,4 +309,10 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
         // TODO Auto-generated method stub
     }
     //////////////////Spinner///////////////
+
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
 }

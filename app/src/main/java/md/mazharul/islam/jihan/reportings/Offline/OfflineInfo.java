@@ -1,4 +1,4 @@
-package com.aos.bdadmission.OfflineAppPref;
+package md.mazharul.islam.jihan.reportings.Offline;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,14 +18,14 @@ public class OfflineInfo {
         sharedpreferences = context.getSharedPreferences("user_info", Context.MODE_PRIVATE);
     }
 
-    public void saveLastSyncTime(String s){
+    public void saveUserName(String s){
         SharedPreferences.Editor editor = sharedpreferences.edit();
-        editor.putString("lastSyncTime",s);
+        editor.putString("username",s);
         editor.commit();
     }
 
-    public String getLastSyncTime(){
-        return sharedpreferences.getString("lastSyncTime","");
+    public String getUserName(){
+        return sharedpreferences.getString("username","");
     }
 
 

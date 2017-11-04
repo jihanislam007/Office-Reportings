@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import md.mazharul.islam.jihan.reportings.JsonModel.AdminMessageItem;
 import md.mazharul.islam.jihan.reportings.R;
 
 /**
@@ -16,33 +19,29 @@ import md.mazharul.islam.jihan.reportings.R;
 public class CentralMessageGetAdaptor extends BaseAdapter{
 
     Activity context;
-    String date[];
-    String time[];
-    String message[];
+    ArrayList<AdminMessageItem> messageItems;
 
-    public CentralMessageGetAdaptor(Activity context, String[] date, String[] time , String[] message ) {
+    public CentralMessageGetAdaptor(Activity context, ArrayList<AdminMessageItem> messageItems) {
         super();
         this.context = context;
-        this.date = date;
-        this.time = time;
-        this.message = message;
+        this.messageItems=messageItems;
     }
     public int getCount() {
         // TODO Auto-generated method stub
-        return date.length;
+        return messageItems.size();
     }
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return null;
+        return messageItems.get(position);
     }
     public long getItemId(int position) {
         // TODO Auto-generated method stub
-        return 0;
+        return position;
     }
-    private class ViewHolder {
-        TextView dateText;
-        TextView timetxt;
-        TextView messagetxt;
+    public class ViewHolder {
+        public TextView dateText;
+        public TextView timetxt;
+        public TextView messagetxt;
     }
     public View getView(int position, View convertView, ViewGroup parent)
     {
@@ -64,9 +63,11 @@ public class CentralMessageGetAdaptor extends BaseAdapter{
             holder = (CentralMessageGetAdaptor.ViewHolder) convertView.getTag();
         }
 
-        holder.dateText.setText(date[position]);
-        holder.timetxt.setText(time[position]);
-        holder.messagetxt.setText(message[position]);
+        holder.dateText.setText(messageItems.get(position).datetime.split(" ")[0]);
+        holder.timetxt.setText(messageItems.get(position).datetime.split(" ")[1]);
+        holder.messagetxt.setText(messageItems.get(position).msg);
+     //   holder.messagetxt.setText("Hello Admin");
+       // System.out.println(messageItems.get(position));
 
         return convertView;
     }

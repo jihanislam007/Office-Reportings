@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -80,8 +81,8 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="fill_parent"
-                    android:padding="16dp"
                     android:orientation="vertical"
+                    android:padding="16dp"
                     android:weightSum="9">
 
                     <LinearLayout
@@ -113,11 +114,11 @@
                             android:id="@+id/PictureImageViewLayout"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
                             android:layout_weight="1"
                             android:background="@drawable/ractangular_border"
                             android:orientation="vertical"
-                            android:weightSum="5"
-                            android:layout_marginRight="5dp">
+                            android:weightSum="5">
 
                             <LinearLayout
                                 android:layout_width="match_parent"
@@ -170,8 +171,8 @@
                                     android:id="@+id/videoImageView"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:src="@drawable/video_icon"
-                                    android:maxHeight="60dp" />
+                                    android:maxHeight="60dp"
+                                    android:src="@drawable/video_icon" />
 
                             </LinearLayout>
 
@@ -199,115 +200,6 @@
                         android:layout_height="0dp"
                         android:layout_weight="1">
 
-                       <!-- <HorizontalScrollView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:fillViewport="true">
-
-                 &lt;!&ndash;visibility has been gone but when attribute will add then visibility will active&ndash;&gt;
-
-                            <LinearLayout
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:orientation="horizontal"
-                                android:weightSum="3">
-
-                                &lt;!&ndash;
-
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
-
-                                    <RelativeLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent">
-
-                                        <ImageView
-                                            android:id="@+id/PreviewOneImageView"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:maxHeight="40dp"
-                                            android:src="@android:drawable/ic_menu_gallery" />
-
-                                        <ImageView
-                                            android:id="@+id/CancelPreviewOneimageView"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"
-                                            android:layout_alignParentEnd="true"
-                                            android:layout_alignParentRight="true"
-                                            android:layout_alignParentTop="true"
-                                            android:src="@android:drawable/presence_offline"/>
-
-                                    </RelativeLayout>
-
-
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
-
-                                    <RelativeLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent">
-
-                                        <ImageView
-                                            android:id="@+id/PreviewTwoImageView"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:maxHeight="40dp"
-                                            android:src="@android:drawable/ic_menu_gallery" />
-
-                                        <ImageView
-                                            android:id="@+id/CancelPreviewTwoimageView"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"
-                                            android:layout_alignParentEnd="true"
-                                            android:layout_alignParentRight="true"
-                                            android:layout_alignParentTop="true"
-                                            app:srcCompat="@android:drawable/presence_offline" />
-
-                                    </RelativeLayout>
-
-                                </LinearLayout>
-                                <LinearLayout
-                                    android:layout_width="0dp"
-                                    android:layout_height="match_parent"
-                                    android:layout_weight="1">
-
-                                    <RelativeLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="match_parent">
-
-                                        <ImageView
-                                            android:id="@+id/PreviewThreeImageView"
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:maxHeight="40dp"
-                                            android:src="@android:drawable/ic_menu_gallery" />
-
-
-                                        <ImageView
-                                            android:id="@+id/CancelPreviewThreeimageView"
-                                            android:layout_width="30dp"
-                                            android:layout_height="30dp"
-                                            android:layout_alignParentEnd="true"
-                                            android:layout_alignParentRight="true"
-                                            android:layout_alignParentTop="true"
-                                            app:srcCompat="@android:drawable/presence_offline" />
-
-                                    </RelativeLayout>
-
-
-                                </LinearLayout>&ndash;&gt;
-
-
-
-                            </LinearLayout>
-
-                        </HorizontalScrollView>-->
-
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/ImagePreviewRecyclerView"
                             android:layout_width="match_parent"
@@ -319,27 +211,29 @@
                         android:id="@+id/VideoPreviewLayout"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:visibility="gone">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
 
-                        <VideoView
-                            android:id="@+id/videoPreviewVideoView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:maxHeight="300dp" />
+                            <VideoView
+                                android:id="@+id/videoPreviewVideoView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:maxHeight="300dp" />
 
 
-                        <ImageView
-                            android:id="@+id/CancelvideoPreviewimageView"
-                            android:layout_width="40dp"
-                            android:layout_height="40dp"
-                            android:layout_alignParentEnd="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_alignParentTop="true"
-                            app:srcCompat="@android:drawable/presence_offline" />
+                            <ImageView
+                                android:id="@+id/CancelvideoPreviewimageView"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                app:srcCompat="@android:drawable/presence_offline" />
 
 
                         </RelativeLayout>
@@ -389,8 +283,8 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="2"
-                        android:layout_marginTop="5dp">
+                        android:layout_marginTop="5dp"
+                        android:layout_weight="2">
 
                         <EditText
                             android:id="@+id/ReportEditText"
@@ -405,6 +299,10 @@
                             android:padding="10dp" />
 
                     </LinearLayout>
+
+
+
+
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -421,6 +319,34 @@
                             android:textColor="@android:color/background_light"
                             android:textSize="24sp" />
 
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight=".5"
+                        android:id="@+id/progressBar"
+                        android:visibility="gone"
+                        >
+                        <com.daimajia.numberprogressbar.NumberProgressBar
+                            android:id="@+id/progressBarNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            custom:progress_unreached_color="#CCCCCC"
+                            custom:progress_reached_color="#3498DB"
+
+                            custom:progress_unreached_bar_height="0.75dp"
+                            custom:progress_reached_bar_height="1.5dp"
+
+                            custom:progress_text_size="10sp"
+                            custom:progress_text_color="#3498DB"
+                            custom:progress_text_offset="1dp"
+                            custom:progress_text_visibility="visible"
+
+                            custom:progress_max="100"
+                            custom:progress_current="1"
+                            />
                     </LinearLayout>
 
                 </LinearLayout>

@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+
 import java.util.ArrayList;
 
 import md.mazharul.islam.jihan.reportings.R;
@@ -19,78 +22,55 @@ import md.mazharul.islam.jihan.reportings.R;
 public class RecycleViewAdaptor extends RecyclerView.Adapter<RecycleViewAdaptor.ViewHolder> {
 
     ArrayList<Uri> alImage;
-    ArrayList<Uri> crossImage;
     Context context;
 
-    public RecycleViewAdaptor(Context context, ArrayList<Uri> alImage, ArrayList<Uri> crossImage) {
+    public RecycleViewAdaptor(Context context, ArrayList<Uri> alImage) {
         super();
         this.context = context;
         this.alImage = alImage;
-        this.crossImage = crossImage;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext())
+        View v = LayoutInflater.from(context)
                 .inflate(R.layout.ricycl_view_image_layout, viewGroup, false);
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, int i) {
-      //  viewHolder.tvSpecies.setText(alName.get(i));
-      /*  viewHolder.imgThumbnail.setImageResource(alImage.get(i));
+    public void onBindViewHolder(ViewHolder viewHolder, final int i) {
+        System.out.println("i is "+i);
+//        viewHolder.imgThumbnail.setImageURI(alImage.get(i));
+        Glide
+                .with(context)
+                .load(alImage.get(i))
+                .into(viewHolder.imgThumbnail);
 
-        viewHolder.setClickListener(new ItemClickListener() {
+
+        viewHolder.crossimgThumbnail.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view, int position, boolean isLongClick) {
-                if (isLongClick) {
-                  //  Toast.makeText(context, "#" + position + " - " + alName.get(position) + " (Long click)", Toast.LENGTH_SHORT).show();
-                    context.startActivity(new Intent(context, RecycleViewAdaptor.class));
-                } else {
-                 //   Toast.makeText(context, "#" + position + " - " + alName.get(position), Toast.LENGTH_SHORT).show();
-                }
+            public void onClick(View v) {
+                alImage.remove(i);
+                notifyDataSetChanged();
             }
-        });*/
+        });
     }
 
     @Override
     public int getItemCount() {
-       // return alName.size();
-        return 0;
+        return alImage.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener, View.OnLongClickListener {
+    public static class ViewHolder extends RecyclerView.ViewHolder{
 
         public ImageView imgThumbnail;
         public ImageView crossimgThumbnail;
-     //   public TextView tvSpecies;
-        private ItemClickListener clickListener;
-        private ItemClickListener crossclickListener;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imgThumbnail = (ImageView) itemView.findViewById(R.id.img_thumbnail);
             crossimgThumbnail = (ImageView) itemView.findViewById(R.id.CancelPreviewOneimageView);
-         //   tvSpecies = (TextView) itemView.findViewById(R.id.tv_species);
-            itemView.setOnClickListener(this);
-            itemView.setOnLongClickListener(this);
-        }
-
-        public void setClickListener(ItemClickListener itemClickListener) {
-            this.clickListener = itemClickListener;
-        }
-
-        @Override
-        public void onClick(View view) {
-            clickListener.onClick(view, getPosition(), false);
-        }
-
-        @Override
-        public boolean onLongClick(View view) {
-            clickListener.onClick(view, getPosition(), true);
-            return true;
         }
     }
 

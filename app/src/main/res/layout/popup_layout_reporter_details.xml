@@ -90,7 +90,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:text="No data"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        android:id="@+id/nameTextView"/>
 
                 </LinearLayout>
 
@@ -129,7 +130,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:text="No data"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        android:id="@+id/type"/>
 
                 </LinearLayout>
 
@@ -167,7 +169,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:text="No data"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        android:id="@+id/address"/>
 
                 </LinearLayout>
             </LinearLayout>
@@ -205,7 +208,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:text="No data"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        android:id="@+id/userName"/>
 
                 </LinearLayout>
 
@@ -244,7 +248,8 @@
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
                         android:text="No data"
-                        android:textSize="14sp"/>
+                        android:textSize="14sp"
+                        android:id="@+id/password"/>
 
                 </LinearLayout>
 

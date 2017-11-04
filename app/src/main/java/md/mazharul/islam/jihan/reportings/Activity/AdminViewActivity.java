@@ -14,36 +14,37 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 import md.mazharul.islam.jihan.reportings.Adapter.AdminListViewAdaptor;
+import md.mazharul.islam.jihan.reportings.JsonModel.ReportListItem;
 import md.mazharul.islam.jihan.reportings.R;
+import md.mazharul.islam.jihan.reportings.ServerInfo.ServerInfo;
 
 public class AdminViewActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     ListView listView;
-
+    ArrayList<ReportListItem> reportListItems=new ArrayList<ReportListItem>();
+    AdminListViewAdaptor adminListViewAdaptor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        String name[] ={"Name1","Name2","Name3","Name4","Name5","Name6","Name7","Name8"};
-        String address[] ={"Address1","Address2","Address3","Address4","Address5","Address6","Address7","Address8"};
-        String time[] ={"10:20 AM","12:30 PM","10:20 AM","12:30 PM","10:20 AM","12:30 PM","10:20 AM","12:30 PM"};
-        String news[] ={"Here is news one Heading for Admin pannel.......",
-                "Here is news two Heading for Admin pannel.......",
-                "Here is news three Heading for Admin pannel.......",
-                "Here is news four Heading for Admin pannel.......",
-                "Here is news five Heading for Admin pannel.......",
-                "Here is news six Heading for Admin pannel.......",
-                "Here is news seven Heading for Admin pannel.......",
-                "Here is news eight Heading for Admin pannel......."};
-
         ///////////////////listView/////////////////////////////
         listView = (ListView) findViewById(R.id.AdminNewsListView);
-        AdminListViewAdaptor adminListViewAdaptor = new AdminListViewAdaptor(this, name, address,time,news);
+        adminListViewAdaptor = new AdminListViewAdaptor(this,reportListItems);
         listView.setAdapter(adminListViewAdaptor);
 
 
@@ -52,6 +53,7 @@ public class AdminViewActivity extends AppCompatActivity
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 Intent in = new Intent(AdminViewActivity.this , AdminNewsViewActivity.class);
+                in.putExtra("id",reportListItems.get(position).reportId);
                 startActivity(in);
             }
         });
@@ -75,6 +77,24 @@ public class AdminViewActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        loadReportList();
+    }
+    public void loadReportList(){
+        System.out.println("try to load server data");
+        AsyncHttpClient asyncHttpClient=new AsyncHttpClient();
+        asyncHttpClient.get(ServerInfo.BASE_URL+"GetAllReport/",new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                Gson gson=new Gson();
+                Type type = new TypeToken<ArrayList<ReportListItem>>() {}.getType();
+                ArrayList<ReportListItem> listItems=gson.fromJson(response.toString(),
+                        type);
+
+                reportListItems.addAll(listItems);
+                adminListViewAdaptor.notifyDataSetChanged();
+
+            }
+        });
     }
 
     @Override
@@ -138,5 +158,13 @@ public class AdminViewActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        reportListItems.clear();
+        adminListViewAdaptor.notifyDataSetChanged();
+        loadReportList();
+        System.out.println("On Resume call in admin view");
     }
 }

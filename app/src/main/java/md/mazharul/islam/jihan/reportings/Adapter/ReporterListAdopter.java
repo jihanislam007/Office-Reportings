@@ -7,6 +7,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import md.mazharul.islam.jihan.reportings.JsonModel.ReporterListItem;
 import md.mazharul.islam.jihan.reportings.R;
 
 /**
@@ -16,26 +19,24 @@ import md.mazharul.islam.jihan.reportings.R;
 public class ReporterListAdopter extends BaseAdapter {
 
     Activity context;
-    String name[];
-    String address[];
+    ArrayList<ReporterListItem> reporterListItems;
 
-    public ReporterListAdopter(Activity context, String[] name, String[] address ) {
+    public ReporterListAdopter(Activity context, ArrayList<ReporterListItem> reporterListItems ) {
         super();
         this.context = context;
-        this.name = name;
-        this.address = address;
+        this.reporterListItems=reporterListItems;
     }
     public int getCount() {
         // TODO Auto-generated method stub
-        return name.length;
+        return reporterListItems.size();
     }
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return null;
+        return reporterListItems.get(position);
     }
     public long getItemId(int position) {
         // TODO Auto-generated method stub
-        return 0;
+        return position;
     }
     private class ViewHolderList {
         TextView nameText;
@@ -60,8 +61,8 @@ public class ReporterListAdopter extends BaseAdapter {
             holder = (ReporterListAdopter.ViewHolderList) convertView.getTag();
         }
 
-        holder.nameText.setText(name[position]);
-        holder.addresstxt.setText(address[position]);
+        holder.nameText.setText(reporterListItems.get(position).reporterName);
+        holder.addresstxt.setText(reporterListItems.get(position).reporterAddress);
 
         return convertView;
     }
