@@ -13,8 +13,12 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
@@ -39,6 +43,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.HttpResponse;
@@ -47,7 +52,7 @@ import md.mazharul.islam.jihan.reportings.R;
 import md.mazharul.islam.jihan.reportings.ServerInfo.ServerInfo;
 import me.relex.circleindicator.CircleIndicator;
 
-public class AdminNewsViewActivity extends AppCompatActivity {
+public class AdminNewsViewActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     //VideoView video;
     FullscreenVideoLayout video;
@@ -60,12 +65,25 @@ public class AdminNewsViewActivity extends AppCompatActivity {
     Dialog dialog;
     FloatingActionButton fab;
     LinearLayout VideoPreviewLayout;
+    Toolbar toolbar;
+    Dialog mDialog;
+    Spinner MailChoiceSpinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_news_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        /*toolbar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            //    mail_sender_pop();
+                mDialog.show();
+            }
+        });*/
 
         imageSliderAdapter=new ImageSlider(this,imgUrls);
         VideoPreviewLayout= (LinearLayout) findViewById(R.id.VideoPreviewLayout);
@@ -74,7 +92,9 @@ public class AdminNewsViewActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                downloadVideo();
+              //  downloadVideo();
+                mail_sender_pop();
+                mDialog.show();
             }
         });
 
@@ -252,9 +272,50 @@ public class AdminNewsViewActivity extends AppCompatActivity {
         System.out.println(destFile.getAbsolutePath());
     }
 
+    ////////////////for popup////////////////////////
+    public void mail_sender_pop() {
+        mDialog = new Dialog(AdminNewsViewActivity.this);
+        mDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        mDialog.setContentView(R.layout.popup_details_mail_sender_layout);
 
 
+       /* MailChoiceSpinner = (Spinner) findViewById(R.id.MailChoiceSpinner);
+
+        // Spinner click listener
+        MailChoiceSpinner.setOnItemSelectedListener(AdminNewsViewActivity.this);
+
+        // Spinner Drop down elements
+        List<String> categories = new ArrayList<String>();
+        categories.add("Automobile");
+        categories.add("Business Services");
+        categories.add("Computers");
+        categories.add("Education");
+        categories.add("Personal");
+        categories.add("Travel");
+
+        // Creating adapter for spinner
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, categories);
+
+        // Drop down layout style - list view with radio button
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // attaching data adapter to spinner
+        MailChoiceSpinner.setAdapter(dataAdapter);*/
+
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+        Toast.makeText(AdminNewsViewActivity.this, i ,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
+    ////////////////for popup////////////////////////
 }
+
 class ImageSlider extends PagerAdapter{
 
     ArrayList<String> imgUrl;
@@ -296,4 +357,6 @@ class ImageSlider extends PagerAdapter{
     public void destroyItem(ViewGroup container, int position, Object object) {
         container.removeView((LinearLayout) object);
     }
+
+
 }

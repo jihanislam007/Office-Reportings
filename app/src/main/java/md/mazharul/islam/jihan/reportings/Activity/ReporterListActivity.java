@@ -54,7 +54,6 @@ public class ReporterListActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
                 pop(position);
 
             }

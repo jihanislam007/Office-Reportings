@@ -37,7 +37,6 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
     Spinner logInSpiner;
     EditText user_name;
-    EditText password;
     Button logIn;
     TextView forgot_pass;
     EditText PasswordCarecterOneEditText, PasswordCarecterTwoEditText, PasswordCarecterThreeEditText, PasswordNumberOneEditText, PasswordNumberTwoEditText, PasswordNumberThreeEditText;
