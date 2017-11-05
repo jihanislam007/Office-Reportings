@@ -43,6 +43,7 @@
             android:padding="8dp">
 
             <ImageView
+                android:id="@+id/LessSecureImageView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:src="@drawable/gmail"/>
@@ -83,27 +84,13 @@
                         android:layout_weight="1"
                         android:paddingBottom="3dp">
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="যে Gmail Address থেকে পাঠাবেন সেটি লিখুন ।"
-                            android:gravity="center"
-                            android:textSize="18sp"
-                            android:background="@drawable/ractangular_border"/>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:paddingBottom="3dp">
-
                         <EditText
-                            android:id="@+id/EmailAddressEditText"
+                            android:id="@+id/SenderEmailAddressEditText"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/ractangular_border" />
+                            android:background="@drawable/ractangular_border"
+                            android:gravity="center"
+                            android:hint="যে Gmail Address থেকে পাঠাবেন সেটি লিখুন ।"/>
 
                     </LinearLayout>
 
@@ -118,7 +105,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/ractangular_border"
-                            android:inputType="textPassword"/>
+                            android:inputType="textPassword"
+                            android:hint="পাসওয়ার্ড"
+                            android:gravity="center"/>
 
                     </LinearLayout>
 
@@ -152,13 +141,14 @@
                 android:layout_weight="1"
                 android:paddingBottom="3dp">
 
-                <TextView
+                <EditText
+                    android:id="@+id/ReciverEmailAddressEditText"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="যে Gmail Address এ পাঠাবেন সেটি যোগ করুন ।"
+                    android:background="@drawable/ractangular_border"
                     android:gravity="center"
-                    android:textSize="18sp"
-                    android:background="@drawable/ractangular_border"                    />
+                    android:hint="যে Gmail Address থেকে পাঠাবেন সেটি লিখুন ।"/>
+                />
 
             </LinearLayout>
 
