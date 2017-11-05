@@ -10,35 +10,32 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
+import md.mazharul.islam.jihan.reportings.JsonModel.ReportListItem;
 import md.mazharul.islam.jihan.reportings.R;
 
 public class AdminListViewAdaptor extends BaseAdapter
 {
     Activity context;
-    String name[];
-    String address[];
-    String time[];
-    String news[];
+    ArrayList<ReportListItem> reportListItems;
 
-    public AdminListViewAdaptor(Activity context, String[] name, String[] address , String[] time ,String[] news) {
+    public AdminListViewAdaptor(Activity context, ArrayList<ReportListItem> reportListItems) {
         super();
         this.context = context;
-        this.name = name;
-        this.address = address;
-        this.time = time;
-        this.news = news;
+        this.reportListItems=reportListItems;
     }
     public int getCount() {
         // TODO Auto-generated method stub
-        return name.length;
+        return reportListItems.size();
     }
     public Object getItem(int position) {
         // TODO Auto-generated method stub
-        return null;
+        return reportListItems.get(position);
     }
     public long getItemId(int position) {
         // TODO Auto-generated method stub
-        return 0;
+        return position;
     }
     private class ViewHolder {
         TextView nameText;
@@ -67,10 +64,10 @@ public class AdminListViewAdaptor extends BaseAdapter
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.nameText.setText(name[position]);
-        holder.addresstxt.setText(address[position]);
-        holder.timetxt.setText(time[position]);
-        holder.newstxt.setText(news[position]);
+        holder.nameText.setText(reportListItems.get(position).reporterName);
+        holder.addresstxt.setText(reportListItems.get(position).reportAddress);
+        holder.timetxt.setText(reportListItems.get(position).dateTime.split(" ")[1]);
+        holder.newstxt.setText(reportListItems.get(position).headLine);
 
         return convertView;
     }

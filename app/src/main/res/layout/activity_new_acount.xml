@@ -38,7 +38,8 @@
                     android:gravity="center"
                     android:text="@string/new_acount_header"
                     android:textColor="@android:color/background_light"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    android:id="@+id/header"/>
 
             </LinearLayout>
 
@@ -282,7 +283,7 @@
                         android:layout_weight="1">
 
                         <Button
-                            android:id="@+id/LogInButton"
+                            android:id="@+id/btnSaveUserInformation"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/ractangular_color"

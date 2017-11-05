@@ -22,12 +22,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
                 android:padding="5dp"
-                android:visibility="gone">
+                android:visibility="visible"
+                android:id="@+id/VideoPreviewLayout"
+                android:background="#000000">
 
-                <VideoView
+                <com.github.rtoshiro.view.video.FullscreenVideoLayout
                     android:id="@+id/VideoViewVideoView"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
+                <!--<VideoView
+                    android:id="@+id/VideoViewVideoView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />-->
 
             </LinearLayout>
 
@@ -35,7 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:padding="5dp"
-                android:background="@drawable/camera">
+                android:background="#000000">
 
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -45,6 +51,10 @@
                         android:id="@+id/viewpager"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+                    <me.relex.circleindicator.CircleIndicator
+                        android:id="@+id/indicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"/>
                     <!--/////////////View Pager//////////////-->
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -119,9 +129,9 @@
                 android:layout_marginRight="10dp">
 
                 <TextView
+                    android:id="@+id/reportDetails"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@string/test_demo_data"/>
+                    android:layout_height="wrap_content"/>
 
             </LinearLayout>
 
