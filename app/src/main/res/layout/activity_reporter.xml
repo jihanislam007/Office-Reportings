@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -197,9 +198,7 @@
                         android:id="@+id/ImagePreviewLayout"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/camera">
-
+                        android:layout_weight="1">
 
                         <android.support.v7.widget.RecyclerView
                             android:id="@+id/ImagePreviewRecyclerView"
@@ -212,7 +211,9 @@
                         android:id="@+id/VideoPreviewLayout"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:padding="5dp"
+                        android:visibility="gone">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -299,6 +300,10 @@
 
                     </LinearLayout>
 
+
+
+
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
@@ -314,6 +319,34 @@
                             android:textColor="@android:color/background_light"
                             android:textSize="24sp" />
 
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_weight=".5"
+                        android:id="@+id/progressBar"
+                        android:visibility="gone"
+                        >
+                        <com.daimajia.numberprogressbar.NumberProgressBar
+                            android:id="@+id/progressBarNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            custom:progress_unreached_color="#CCCCCC"
+                            custom:progress_reached_color="#3498DB"
+
+                            custom:progress_unreached_bar_height="0.75dp"
+                            custom:progress_reached_bar_height="1.5dp"
+
+                            custom:progress_text_size="10sp"
+                            custom:progress_text_color="#3498DB"
+                            custom:progress_text_offset="1dp"
+                            custom:progress_text_visibility="visible"
+
+                            custom:progress_max="100"
+                            custom:progress_current="1"
+                            />
                     </LinearLayout>
 
                 </LinearLayout>
