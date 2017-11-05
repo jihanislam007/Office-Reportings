@@ -39,7 +39,12 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
     EditText user_name;
     Button logIn;
     TextView forgot_pass;
-    EditText PasswordCarecterOneEditText, PasswordCarecterTwoEditText, PasswordCarecterThreeEditText, PasswordNumberOneEditText, PasswordNumberTwoEditText, PasswordNumberThreeEditText;
+    EditText PasswordCarecterOneEditText,
+            PasswordCarecterTwoEditText,
+            PasswordCarecterThreeEditText,
+            PasswordNumberOneEditText,
+            PasswordNumberTwoEditText,
+            PasswordNumberThreeEditText;
 
 
     @Override
@@ -80,6 +85,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
         // attaching data adapter to spinner
         logInSpiner.setAdapter(dataAdapter);
+
         ///////////////Spinner////////////////////////////
     }
 
