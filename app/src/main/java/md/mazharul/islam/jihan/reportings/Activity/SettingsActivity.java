@@ -2,6 +2,7 @@ package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,7 +16,8 @@ public class SettingsActivity extends AppCompatActivity {
             SenderEmailPassword,
             ReciverEmailAddress;
     ListView SettingListView;
-    Button AddReciverMail;
+    Button SenderDoneButton,
+            AddReciverMail;
     ImageView LessSecureImageView;
 
     @Override
@@ -29,8 +31,15 @@ public class SettingsActivity extends AppCompatActivity {
 
         SettingListView = (ListView) findViewById(R.id.SettingListView);
         AddReciverMail = (Button) findViewById(R.id.EmailAddButton);
+        SenderDoneButton = (Button) findViewById(R.id.SenderDoneButton);
         LessSecureImageView = (ImageView) findViewById(R.id.LessSecureImageView);
 
+        String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
+                "WebOS","Ubuntu","Windows7","Max OS X"};
+
+        ArrayAdapter adapter = new ArrayAdapter<String>(this,
+                R.layout.setting_listview_layout, mobileArray);
+        SettingListView.setAdapter(adapter);
 
     }
 }
