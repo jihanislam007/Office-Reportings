@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -39,6 +40,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.channels.FileChannel;
 import java.util.ArrayList;
+import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.HttpResponse;
@@ -47,7 +49,7 @@ import md.mazharul.islam.jihan.reportings.R;
 import md.mazharul.islam.jihan.reportings.ServerInfo.ServerInfo;
 import me.relex.circleindicator.CircleIndicator;
 
-public class AdminNewsViewActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+public class AdminNewsViewActivity extends AppCompatActivity {
 
     //VideoView video;
     FullscreenVideoLayout video;
@@ -111,8 +113,8 @@ public class AdminNewsViewActivity extends AppCompatActivity implements AdapterV
 
         loadServer();
 
-        sendFromGMail("aastitto.media@gmail.com", "dhanmondhi2017", "ar13101085@gmail.com", "Report", "<div class=\"container\"><h2>মিয়ানমারকে শাস্তি নয়, সমাধান চায় যুক্তরাষ্ট্র</h2><br><p class=\"text-justify\">‘যুক্তরাষ্ট্র রোহিঙ্গা ইস্যুর শান্তিপূর্ণ সমাধান চায়। তাই যুক্তরাষ্ট্রের উদ্দেশ্য মিয়ানমারের বিরুদ্ধে শাস্তিমূলক ব্যবস্থা নয়, দীর্ঘদিনের এ সমস্যার সমাধান করা।’ ঢাকা সফররত মার্কিন আন্ডার সেকেন্ডারি (রাজনীতিবিষয়ক) টমাস শ্যানন বাংলাদেশ-যুক্তরাষ্ট্র অংশীদারত্ব সংলাপ শেষে সাংবাদিকদের কাছে এ মন্তব্য করেন।সংলাপ শেষে পররাষ্ট্রসচিব মো. শহীদুল হক বলেন, ‘রোহিঙ্গা সমস্যা সমাধানে যুক্তরাষ্ট্র বাংলাদেশের সবচেয়ে জোরালো সমর্থক। অংশীদারত্ব সংলাপে রোহিঙ্গা সমস্যা নিয়ে আমাদের মধ্যে বিস্তারিত ও ফলপ্রসূ আলোচনা হয়েছে।’বাংলাদেশ-যুক্তরাষ্ট্র ষষ্ঠ অংশীদারত্ব সংলাপ আজ রোববার রাষ্ট্রীয় অতিথি ভবন মেঘনায় অনুষ্ঠিত হয়। সংলাপ শেষে শহীদুল হক ও টমাস শ্যানন যৌথ সংবাদ সম্মেলনে অংশ নেন।</p><br><div class=\"col-xs-4\"> <a href=\"http://104.251.215.144:8587/media/IMG_20171027_160814.jpg\" class=\"thumbnail\"> <img src=\"http://104.251.215.144:8587/media/IMG_20171027_160814.jpg\" width=\"100px\" height=\"100px\"> </a> </div><br /><a href=\"http://104.251.215.144:8587/media/Monali_Its_Only_Pyaar-Monali_Thakur_-_YouTube.MP4\">Download Video</a></div>"
-        );
+        /*sendFromGMail("aastitto.media@gmail.com", "dhanmondhi2017", "ar13101085@gmail.com", "Report", "<div class=\"container\"><h2>মিয়ানমারকে শাস্তি নয়, সমাধান চায় যুক্তরাষ্ট্র</h2><br><p class=\"text-justify\">‘যুক্তরাষ্ট্র রোহিঙ্গা ইস্যুর শান্তিপূর্ণ সমাধান চায়। তাই যুক্তরাষ্ট্রের উদ্দেশ্য মিয়ানমারের বিরুদ্ধে শাস্তিমূলক ব্যবস্থা নয়, দীর্ঘদিনের এ সমস্যার সমাধান করা।’ ঢাকা সফররত মার্কিন আন্ডার সেকেন্ডারি (রাজনীতিবিষয়ক) টমাস শ্যানন বাংলাদেশ-যুক্তরাষ্ট্র অংশীদারত্ব সংলাপ শেষে সাংবাদিকদের কাছে এ মন্তব্য করেন।সংলাপ শেষে পররাষ্ট্রসচিব মো. শহীদুল হক বলেন, ‘রোহিঙ্গা সমস্যা সমাধানে যুক্তরাষ্ট্র বাংলাদেশের সবচেয়ে জোরালো সমর্থক। অংশীদারত্ব সংলাপে রোহিঙ্গা সমস্যা নিয়ে আমাদের মধ্যে বিস্তারিত ও ফলপ্রসূ আলোচনা হয়েছে।’বাংলাদেশ-যুক্তরাষ্ট্র ষষ্ঠ অংশীদারত্ব সংলাপ আজ রোববার রাষ্ট্রীয় অতিথি ভবন মেঘনায় অনুষ্ঠিত হয়। সংলাপ শেষে শহীদুল হক ও টমাস শ্যানন যৌথ সংবাদ সম্মেলনে অংশ নেন।</p><br><div class=\"col-xs-4\"> <a href=\"http://104.251.215.144:8587/media/IMG_20171027_160814.jpg\" class=\"thumbnail\"> <img src=\"http://104.251.215.144:8587/media/IMG_20171027_160814.jpg\" width=\"100px\" height=\"100px\"> </a> </div><br /><a href=\"http://104.251.215.144:8587/media/Monali_Its_Only_Pyaar-Monali_Thakur_-_YouTube.MP4\">Download Video</a></div>"
+        );*/
 
     }
 
@@ -302,31 +304,6 @@ public class AdminNewsViewActivity extends AppCompatActivity implements AdapterV
                     }
                 })
                 .send();
-        /*BackgroundMail.newBuilder(this)
-                .withUseDefaultSession(false)
-                .withUsername(from)
-                .withPassword(pass)
-                .withSenderName(from)
-                .withMailTo(to)
-                //.withMailCc("cc-email@gmail.com")
-                //.withMailBcc("bcc-email@gmail.com")
-                .withType(BackgroundMail.TYPE_HTML)
-                .withSubject(subject)
-                .withBody(body)
-                .withOnSuccessCallback(new BackgroundMail.OnSuccessCallback() {
-                    @Override
-                    public void onSuccess() {
-                        //do some magic
-                        Toast.makeText(AdminNewsViewActivity.this, "Successfully send mail", Toast.LENGTH_SHORT).show();
-                    }
-                })
-                .withOnFailCallback(new BackgroundMail.OnFailCallback() {
-                    @Override
-                    public void onFail() {
-                        //do some magic
-                    }
-                })
-                .send();*/
     }
     ////////////////for popup////////////////////////
     public void mail_sender_pop() {
@@ -335,12 +312,7 @@ public class AdminNewsViewActivity extends AppCompatActivity implements AdapterV
         mDialog.setContentView(R.layout.popup_details_mail_sender_layout);
 
 
-       /* MailChoiceSpinner = (Spinner) findViewById(R.id.MailChoiceSpinner);
-
-        // Spinner click listener
-        MailChoiceSpinner.setOnItemSelectedListener(AdminNewsViewActivity.this);
-
-        // Spinner Drop down elements
+        MailChoiceSpinner = (Spinner) mDialog.findViewById(R.id.MailChoiceSpinner);
         List<String> categories = new ArrayList<String>();
         categories.add("Automobile");
         categories.add("Business Services");
@@ -356,20 +328,9 @@ public class AdminNewsViewActivity extends AppCompatActivity implements AdapterV
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // attaching data adapter to spinner
-        MailChoiceSpinner.setAdapter(dataAdapter);*/
+        MailChoiceSpinner.setAdapter(dataAdapter);
 
     }
-
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        Toast.makeText(AdminNewsViewActivity.this, i ,Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
-    ////////////////for popup////////////////////////
 }
 
 class ImageSlider extends PagerAdapter{

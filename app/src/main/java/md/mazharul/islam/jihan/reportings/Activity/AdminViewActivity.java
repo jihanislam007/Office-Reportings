@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.baoyz.widget.PullRefreshLayout;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.loopj.android.http.AsyncHttpClient;
@@ -36,6 +37,7 @@ public class AdminViewActivity extends AppCompatActivity
     ListView listView;
     ArrayList<ReportListItem> reportListItems=new ArrayList<ReportListItem>();
     AdminListViewAdaptor adminListViewAdaptor;
+    PullRefreshLayout swipeRefreshLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,16 @@ public class AdminViewActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ///////////////////listView/////////////////////////////
+        swipeRefreshLayout = (PullRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        swipeRefreshLayout.setOnRefreshListener(new PullRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                loadReportList();
+
+            }
+        });
+
+
         listView = (ListView) findViewById(R.id.AdminNewsListView);
         adminListViewAdaptor = new AdminListViewAdaptor(this,reportListItems);
         listView.setAdapter(adminListViewAdaptor);
@@ -94,6 +106,7 @@ public class AdminViewActivity extends AppCompatActivity
 
                 reportListItems.addAll(listItems);
                 adminListViewAdaptor.notifyDataSetChanged();
+                swipeRefreshLayout.setRefreshing(false);
 
             }
         });

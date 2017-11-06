@@ -20,18 +20,18 @@
         <activity
             android:name=".Activity.LogInActivity"
             android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".Activity.ReporterActivity"></activity>
         <activity
             android:name=".Activity.AdminViewActivity"
             android:label="@string/title_activity_admin_view"
             android:theme="@style/AppTheme" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".Activity.AdminNewsViewActivity"

@@ -40,6 +40,17 @@ public class OfflineInfo {
     }
 
 
+    public void saveEmailPassword(String s){
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("email_password",s);
+        editor.commit();
+    }
+
+    public String getEmailPassword(){
+        return sharedpreferences.getString("email_password","");
+    }
+
+
     public void clearAll(){
         sharedpreferences.edit().clear().apply();
     }
