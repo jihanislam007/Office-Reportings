@@ -76,12 +76,13 @@ public class ReporterActivity extends AppCompatActivity {
     Uri videoUri;
     LinearLayout progressBar;
     NumberProgressBar progressBarNumber;
-
+    OfflineInfo offlineInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reporter);
-
+        offlineInfo=new OfflineInfo(ReporterActivity.this);
+        System.out.println("User name is "+offlineInfo.getUserName());
 
         logout = (TextView) findViewById(R.id.LogOutTextView);
         progressBar = (LinearLayout) findViewById(R.id.progressBar);
@@ -195,7 +196,7 @@ public class ReporterActivity extends AppCompatActivity {
                 progressBar.setVisibility(View.VISIBLE);
                 progressBarNumber.setProgress(1);
 
-                OfflineInfo offlineInfo=new OfflineInfo(ReporterActivity.this);
+
                 AsyncHttpClient client = new AsyncHttpClient();
                 client.setTimeout(1000*60*60*60);
                 final RequestParams params = new RequestParams();

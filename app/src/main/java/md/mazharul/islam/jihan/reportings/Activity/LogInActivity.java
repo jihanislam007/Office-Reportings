@@ -236,7 +236,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         /*// On selecting a spinner item
         String item = parent.getItemAtPosition(position).toString();*/
-        offlineInfo.saveUserName( user_name.getText().toString());
+
         if (position == 0) {
             forgot_pass.setVisibility(View.INVISIBLE);
             logIn.setOnClickListener(new View.OnClickListener() {
@@ -248,7 +248,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                     params.add("username", user_name.getText().toString());
                     params.add("password", getPassword());
 
-
+                    offlineInfo.saveUserName( user_name.getText().toString());
 
                     client.post(ServerInfo.BASE_URL + "ReporterLogin/", params, new JsonHttpResponseHandler() {
                         @Override
@@ -282,6 +282,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                     RequestParams params = new RequestParams();
                     params.add("username", user_name.getText().toString());
                     params.add("password", getPassword());
+                    offlineInfo.saveUserName( user_name.getText().toString());
                     client.post(ServerInfo.BASE_URL + "Login/", params, new JsonHttpResponseHandler() {
                         @Override
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
