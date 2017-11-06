@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.TooManyListenersException;
 
 import cz.msebera.android.httpclient.Header;
+import md.mazharul.islam.jihan.reportings.Offline.OfflineInfo;
 import md.mazharul.islam.jihan.reportings.R;
 import md.mazharul.islam.jihan.reportings.ServerInfo.ServerInfo;
 
@@ -41,13 +42,13 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
     Button logIn;
     TextView forgot_pass;
     EditText PasswordCarecterOneEditText, PasswordCarecterTwoEditText, PasswordCarecterThreeEditText, PasswordNumberOneEditText, PasswordNumberTwoEditText, PasswordNumberThreeEditText;
-
+    OfflineInfo offlineInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-
+        offlineInfo=new OfflineInfo(this);
         takePermission();
 
         PasswordCarecterOneEditText = (EditText) findViewById(R.id.PasswordCarecterOneEditText);
@@ -247,6 +248,8 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             try {
                                 if (response.getBoolean("res")) {
+
+                                    offlineInfo.saveUserName(user_name.getText().toString());
                                     Toast.makeText(LogInActivity.this, "Successfully login", Toast.LENGTH_SHORT).show();
                                     Intent in = new Intent(LogInActivity.this, ReporterActivity.class);
                                     startActivity(in);
@@ -277,6 +280,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                         public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                             try {
                                 if (response.getBoolean("res")) {
+                                    offlineInfo.saveUserName(user_name.getText().toString());
                                     Toast.makeText(LogInActivity.this, "Successfully login", Toast.LENGTH_SHORT).show();
                                     Intent in = new Intent(LogInActivity.this, AdminViewActivity.class);
                                     startActivity(in);

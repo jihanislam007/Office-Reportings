@@ -204,6 +204,7 @@ public class ReporterActivity extends AppCompatActivity {
 
                 OfflineInfo offlineInfo=new OfflineInfo(ReporterActivity.this);
                 AsyncHttpClient client = new AsyncHttpClient();
+                client.setTimeout(1000*60*60*60);
                 final RequestParams params = new RequestParams();
                 File[] files = new File[alImage.size()];
                 int i = 0;

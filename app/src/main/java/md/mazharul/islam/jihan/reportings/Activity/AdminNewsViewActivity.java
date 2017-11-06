@@ -149,10 +149,12 @@ public class AdminNewsViewActivity extends AppCompatActivity {
             return "";
         }
     }
-    public static String getDataDir(Context context) throws Exception {
-        return context.getPackageManager()
+    public String getDataDir(Context context) throws Exception {
+        /*return context.getPackageManager()
                 .getPackageInfo(context.getPackageName(), 0)
-                .applicationInfo.dataDir;
+                .applicationInfo.dataDir;*/
+        System.out.println("Path is "+this.getFilesDir().getAbsolutePath());
+        return this.getFilesDir().getAbsolutePath();
     }
 
     public void loadServer(){
