@@ -55,12 +55,6 @@ public class ReporterActivity extends AppCompatActivity {
     ImageView getMessage;
     LinearLayout picture;
     LinearLayout video;
-    /*ImageView pre1;
-    ImageView pre2;
-    ImageView pre3;
-    ImageView Cancelpre1;
-    ImageView Cancelpre2;
-    ImageView Cancelpre3;*/
 
     VideoView videoPreview;
     ImageView CancelpreVideo;
@@ -77,7 +71,7 @@ public class ReporterActivity extends AppCompatActivity {
     RecyclerView mRecyclerView;
     RecyclerView.LayoutManager mLayoutManager;
     RecyclerView.Adapter mAdapter;
-    //  ArrayList<String> alName;
+
     ArrayList<Uri> alImage;
     Uri videoUri;
     LinearLayout progressBar;
@@ -96,16 +90,7 @@ public class ReporterActivity extends AppCompatActivity {
         getMessage = (ImageView) findViewById(R.id.GetMessageImageView);
         picture = (LinearLayout) findViewById(R.id.PictureImageViewLayout);
         video = (LinearLayout) findViewById(R.id.videoImageViewLayout);
-        /*pre1 = (ImageView) findViewById(R.id.PreviewOneImageView);
-        pre2 = (ImageView) findViewById(R.id.PreviewTwoImageView);
-        pre3 = (ImageView) findViewById(R.id.PreviewThreeImageView);
-        Cancelpre1 = (ImageView) findViewById(R.id.CancelPreviewOneimageView);
 
-
-
-        Cancelpre2 = (ImageView) findViewById(R.id.CancelPreviewTwoimageView);
-        Cancelpre3 = (ImageView) findViewById(R.id.CancelPreviewThreeimageView);
-*/
         videoPreview = (VideoView) findViewById(R.id.videoPreviewVideoView);
         CancelpreVideo = (ImageView) findViewById(R.id.CancelvideoPreviewimageView);
         CancelpreVideo.setOnClickListener(new View.OnClickListener() {
@@ -125,7 +110,15 @@ public class ReporterActivity extends AppCompatActivity {
         imagePreviewlayout = (LinearLayout) findViewById(R.id.ImagePreviewLayout);
         videoPreviewlayout = (LinearLayout) findViewById(R.id.VideoPreviewLayout);
 
-        //////////////////////////Recycle view/////////////////////////////
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent in = new Intent(ReporterActivity.this, LogInActivity.class);
+                startActivity(in);
+            }
+        });
+
+        //////////////////////////Recycle view start/////////////////////////////
 
         alImage = new ArrayList<>();
         //  alImage = new ArrayList<>(Arrays.asList(R.drawable.camera, R.drawable.camera, R.drawable.camera));

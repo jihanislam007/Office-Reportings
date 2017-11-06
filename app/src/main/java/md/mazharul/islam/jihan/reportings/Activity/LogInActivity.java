@@ -255,6 +255,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                                     Toast.makeText(LogInActivity.this, "Successfully login", Toast.LENGTH_SHORT).show();
                                     Intent in = new Intent(LogInActivity.this, ReporterActivity.class);
                                     startActivity(in);
+                                    finish();
                                 } else {
                                     Toast.makeText(LogInActivity.this, "User name or password invalid", Toast.LENGTH_SHORT).show();
                                 }
@@ -267,6 +268,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
                 }
             });
+
         } else if (position == 1) {
             forgot_pass.setVisibility(View.VISIBLE);
             logIn.setOnClickListener(new View.OnClickListener() {
@@ -285,6 +287,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                                     Toast.makeText(LogInActivity.this, "Successfully login", Toast.LENGTH_SHORT).show();
                                     Intent in = new Intent(LogInActivity.this, AdminViewActivity.class);
                                     startActivity(in);
+                                    finish();
 
                                 } else {
                                     Toast.makeText(LogInActivity.this, "User name or password invalid", Toast.LENGTH_SHORT).show();
@@ -304,6 +307,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
             public void onClick(View v) {
                 Intent in = new Intent(LogInActivity.this, ForgotPasswordActivity.class);
                 startActivity(in);
+
             }
         });
         /*// Showing selected spinner item
