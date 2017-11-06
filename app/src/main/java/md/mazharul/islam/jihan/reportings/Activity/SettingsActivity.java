@@ -11,12 +11,12 @@ import md.mazharul.islam.jihan.reportings.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
-EditText SenderEmailAddress,
-    SenderEmailPassword,
-    ReciverEmailAddress;
-ListView SettingListView;
-Button AddReciverMail;
-ImageView LessSecureImageView;
+    EditText SenderEmailAddress,
+            SenderEmailPassword,
+            ReciverEmailAddress;
+    ListView SettingListView;
+    Button AddReciverMail;
+    ImageView LessSecureImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
