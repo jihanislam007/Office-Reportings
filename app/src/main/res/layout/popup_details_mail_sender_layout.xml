@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="180dp"
     tools:context="md.mazharul.islam.jihan.reportings.Activity.SettingsActivity"
     android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_height="40dp"
         android:layout_weight="1"
         android:background="@color/loginBackground">
 
@@ -28,42 +28,39 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="9"
-        android:weightSum="3"
         android:orientation="vertical"
         android:padding="8dp">
 
 
-            <LinearLayout
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="40dp"
+            android:background="@drawable/ractangular_border">
+
+            <Spinner
+                android:id="@+id/MailChoiceSpinner"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingBottom="5dp"
-                android:minHeight="50dp">
+                android:layout_height="match_parent"
+                android:minHeight="40dp"></Spinner>
 
-                <Spinner
-                    android:id="@+id/MailChoiceSpinner"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@drawable/ractangular_border"></Spinner>
+        </LinearLayout>
 
-            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:minHeight="50dp">
+
 
                 <Button
                     android:id="@+id/EmailSendButton"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Send"
                     android:textSize="20sp"
                     android:background="@color/loginBackground"
-                    android:textColor="#FFFFFF"/>
+                    android:textColor="#FFFFFF"
+                    android:minHeight="40dp"
+                    android:layout_marginTop="8dp"/>
 
-            </LinearLayout>
+
 
         </LinearLayout>
 

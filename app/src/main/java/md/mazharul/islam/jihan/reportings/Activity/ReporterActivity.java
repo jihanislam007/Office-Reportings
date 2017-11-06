@@ -257,8 +257,11 @@ public class ReporterActivity extends AppCompatActivity {
                     }
                 });
 
+                data_clear();
+
             }
         });
+
     }
 
     public String getRealPathFromURI(Uri contentUri) {
@@ -298,6 +301,19 @@ public class ReporterActivity extends AppCompatActivity {
             }
 
         }
+
+    }
+
+    public void data_clear(){
+
+        reportingAddress.getText().clear();
+        reportHeading.getText().clear();
+        report.getText().clear();
+
+        //////////////////RECYCLE DATA CLEAR START///////
+        alImage.clear(); //clear list
+        mAdapter.notifyDataSetChanged();
+        //////////////////RECYCLE DATA CLEAR START///////
 
     }
 
