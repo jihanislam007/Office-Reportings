@@ -151,9 +151,10 @@ public class AdminViewActivity extends AppCompatActivity
             Intent in = new Intent(AdminViewActivity.this , AdminPasswordChangActivity.class);
             startActivity(in);
 
-        }/* else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.settings_change) {
+            Intent in = new Intent(AdminViewActivity.this , SettingsActivity.class);
+            startActivity(in);
+        }/* else if (id == R.id.nav_send) {
 
         }*/
 

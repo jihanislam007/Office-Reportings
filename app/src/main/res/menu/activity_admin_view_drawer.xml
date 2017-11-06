@@ -18,6 +18,10 @@
             android:id="@+id/passwod_change"
             android:icon="@android:drawable/ic_menu_mylocation"
             android:title="এডমিন পাসওয়ার্ড পরিবর্তন করুন " />
+        <item
+            android:id="@+id/settings_change"
+            android:icon="@android:drawable/ic_menu_set_as"
+            android:title="সেটিংস" />
     </group>
 
     <item android:title="">
