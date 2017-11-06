@@ -29,6 +29,17 @@ public class OfflineInfo {
     }
 
 
+    public void saveEmail(String s){
+        SharedPreferences.Editor editor = sharedpreferences.edit();
+        editor.putString("email",s);
+        editor.commit();
+    }
+
+    public String getEmail(){
+        return sharedpreferences.getString("email","");
+    }
+
+
     public void clearAll(){
         sharedpreferences.edit().clear().apply();
     }
