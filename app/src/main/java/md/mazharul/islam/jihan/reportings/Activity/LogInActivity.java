@@ -30,6 +30,7 @@ import java.util.List;
 import java.util.TooManyListenersException;
 
 import cz.msebera.android.httpclient.Header;
+import md.mazharul.islam.jihan.reportings.Offline.OfflineInfo;
 import md.mazharul.islam.jihan.reportings.R;
 import md.mazharul.islam.jihan.reportings.ServerInfo.ServerInfo;
 
@@ -45,13 +46,13 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
             PasswordNumberOneEditText,
             PasswordNumberTwoEditText,
             PasswordNumberThreeEditText;
-
+    OfflineInfo offlineInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_log_in);
-
+        offlineInfo = new OfflineInfo(this);
         takePermission();
 
         PasswordCarecterOneEditText = (EditText) findViewById(R.id.PasswordCarecterOneEditText);
@@ -94,7 +95,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
             requestPermissions(new String[]{
                     Manifest.permission.READ_EXTERNAL_STORAGE,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE
-            },1);
+            }, 1);
         }
     }
 
@@ -207,7 +208,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
             }
         });
-        PasswordCarecterOneEditText.addTextChangedListener(new TextWatcher () {
+        PasswordCarecterOneEditText.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -235,7 +236,7 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         /*// On selecting a spinner item
         String item = parent.getItemAtPosition(position).toString();*/
-
+        offlineInfo.saveUserName( user_name.getText().toString());
         if (position == 0) {
             forgot_pass.setVisibility(View.INVISIBLE);
             logIn.setOnClickListener(new View.OnClickListener() {
@@ -246,6 +247,8 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                     RequestParams params = new RequestParams();
                     params.add("username", user_name.getText().toString());
                     params.add("password", getPassword());
+
+
 
                     client.post(ServerInfo.BASE_URL + "ReporterLogin/", params, new JsonHttpResponseHandler() {
                         @Override

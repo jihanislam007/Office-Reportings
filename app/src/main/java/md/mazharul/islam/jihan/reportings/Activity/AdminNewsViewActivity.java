@@ -205,11 +205,11 @@ public class AdminNewsViewActivity extends AppCompatActivity {
                 }
                 imageSliderAdapter.notifyDataSetChanged();
 
-                if (reportDetails.video != null && reportDetails.video.length() > 1) {
+               /* if (reportDetails.video != null && reportDetails.video.length() > 1) {
                     fab.setVisibility(View.VISIBLE);
                 } else {
                     fab.setVisibility(View.GONE);
-                }
+                }*/
                 videoPreviewEnable();
             }
         });
@@ -224,7 +224,7 @@ public class AdminNewsViewActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            fab.setVisibility(View.GONE);
+            //fab.setVisibility(View.GONE);
             //video.seekTo(5000);
         }else{
             VideoPreviewLayout.setVisibility(View.GONE);
