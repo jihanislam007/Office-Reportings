@@ -85,6 +85,8 @@ public class AdminViewActivity extends AppCompatActivity
         asyncHttpClient.get(ServerInfo.BASE_URL+"GetAllReport/",new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
+                reportListItems.clear();
+                adminListViewAdaptor.notifyDataSetChanged();
                 Gson gson=new Gson();
                 Type type = new TypeToken<ArrayList<ReportListItem>>() {}.getType();
                 ArrayList<ReportListItem> listItems=gson.fromJson(response.toString(),
@@ -163,8 +165,7 @@ public class AdminViewActivity extends AppCompatActivity
     @Override
     protected void onResume() {
         super.onResume();
-        reportListItems.clear();
-        adminListViewAdaptor.notifyDataSetChanged();
+
         loadReportList();
         System.out.println("On Resume call in admin view");
     }

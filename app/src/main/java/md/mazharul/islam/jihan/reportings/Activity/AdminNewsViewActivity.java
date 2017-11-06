@@ -175,10 +175,13 @@ public class AdminNewsViewActivity extends AppCompatActivity implements AdapterV
         }
     }
 
-    public static String getDataDir(Context context) throws Exception {
-        return context.getPackageManager()
+
+    public String getDataDir(Context context) throws Exception {
+        /*return context.getPackageManager()
                 .getPackageInfo(context.getPackageName(), 0)
-                .applicationInfo.dataDir;
+                .applicationInfo.dataDir;*/
+        System.out.println("Path is "+this.getFilesDir().getAbsolutePath());
+        return this.getFilesDir().getAbsolutePath();
     }
 
     public void loadServer() {
@@ -210,10 +213,10 @@ public class AdminNewsViewActivity extends AppCompatActivity implements AdapterV
         });
     }
 
-    public void videoPreviewEnable() {
-        if (getDestinationFile(rd.video).exists()) {
+    public void videoPreviewEnable(){
+        if(getDestinationFile(rd.video).exists()){
             VideoPreviewLayout.setVisibility(View.VISIBLE);
-            Uri uri = Uri.fromFile(getDestinationFile(rd.video));
+            Uri uri=Uri.fromFile(getDestinationFile(rd.video));
             try {
                 video.setVideoURI(uri);
             } catch (IOException e) {
@@ -221,7 +224,7 @@ public class AdminNewsViewActivity extends AppCompatActivity implements AdapterV
             }
             fab.setVisibility(View.GONE);
             //video.seekTo(5000);
-        } else {
+        }else{
             VideoPreviewLayout.setVisibility(View.GONE);
         }
     }
