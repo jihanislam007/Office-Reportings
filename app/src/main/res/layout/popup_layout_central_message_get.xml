@@ -88,8 +88,7 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:minHeight="100dp"
-                        android:background="@drawable/ractangular_border">
+                        android:minHeight="100dp">
 
                         <TextView
                             android:id="@+id/message"
