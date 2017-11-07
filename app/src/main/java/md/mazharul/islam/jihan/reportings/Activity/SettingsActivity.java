@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -70,6 +71,7 @@ public class SettingsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 offlineInfo.saveEmail(SenderEmailAddress.getText().toString());
                 offlineInfo.saveEmailPassword(SenderEmailPassword.getText().toString());
+                Toast.makeText(context, "Successfully save", Toast.LENGTH_SHORT).show();
 
             }
         });
