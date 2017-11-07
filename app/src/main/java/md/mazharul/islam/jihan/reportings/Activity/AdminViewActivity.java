@@ -1,5 +1,7 @@
 package md.mazharul.islam.jihan.reportings.Activity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -118,7 +120,31 @@ public class AdminViewActivity extends AppCompatActivity
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            super.onBackPressed();
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+            builder.setTitle("Close program");
+            builder.setMessage("Are you sure close this app?");
+
+            builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+
+                public void onClick(DialogInterface dialogInterface, int which) {
+                    dialogInterface.dismiss();
+                    finish();
+                }
+
+            });
+
+            builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    // I do not need any action here you might
+                    dialog.dismiss();
+                }
+            });
+
+            AlertDialog alert = builder.create();
+            alert.show();
         }
     }
 
@@ -182,4 +208,5 @@ public class AdminViewActivity extends AppCompatActivity
         loadReportList();
         System.out.println("On Resume call in admin view");
     }
+
 }

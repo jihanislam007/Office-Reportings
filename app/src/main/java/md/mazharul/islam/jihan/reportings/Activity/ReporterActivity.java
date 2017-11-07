@@ -314,7 +314,8 @@ public class ReporterActivity extends AppCompatActivity {
         alImage.clear(); //clear list
         mAdapter.notifyDataSetChanged();
         //////////////////RECYCLE DATA CLEAR START///////
-
+        videoUri=null;
+        videoPreviewlayout.setVisibility(View.GONE);
     }
 
 }
