@@ -120,7 +120,7 @@ public class ReporterListActivity extends AppCompatActivity {
 
     public void getAllReporter() {
         AsyncHttpClient client=new AsyncHttpClient();
-        client.get(ServerInfo.BASE_URL+"GetAllReporter/",new JsonHttpResponseHandler(){
+        client.get(ServerInfo.BASE_URL+"GetAllUser/?type=reporter",new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 reporterListItems.clear();
@@ -139,7 +139,7 @@ public class ReporterListActivity extends AppCompatActivity {
         AsyncHttpClient client=new AsyncHttpClient();
         RequestParams params=new RequestParams();
         params.add("id",reporterId+"");
-        client.post(ServerInfo.BASE_URL+"DeleteReporter/",params,new JsonHttpResponseHandler(){
+        client.post(ServerInfo.BASE_URL+"DeleteUser/",params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Toast.makeText(ReporterListActivity.this, "Successfully delete a reporter", Toast.LENGTH_SHORT).show();

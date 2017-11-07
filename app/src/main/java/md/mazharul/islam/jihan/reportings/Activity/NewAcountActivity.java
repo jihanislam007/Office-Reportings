@@ -84,12 +84,13 @@ public class NewAcountActivity extends AppCompatActivity {
         }else{
             params.add("id",1+"");
         }
-        params.add("reporter_type",reporter_type.getText().toString());
-        params.add("reporter_name",reporter_name.getText().toString());
-        params.add("reporter_address",reporter_address.getText().toString());
+        params.add("type","reporter");
+        params.add("status",reporter_type.getText().toString());
+        params.add("name",reporter_name.getText().toString());
+        params.add("address",reporter_address.getText().toString());
         params.add("user_name",user_name.getText().toString());
         params.add("password",getPassword());
-        client.post(ServerInfo.BASE_URL+"SaveReporter/",params,new JsonHttpResponseHandler(){
+        client.post(ServerInfo.BASE_URL+"SaveUser/",params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Toast.makeText(NewAcountActivity.this, "Successfully save reporter", Toast.LENGTH_SHORT).show();

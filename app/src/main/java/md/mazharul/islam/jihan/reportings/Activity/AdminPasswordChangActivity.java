@@ -72,7 +72,7 @@ public class AdminPasswordChangActivity extends AppCompatActivity {
         params.add("userName",UserNameEditText.getText().toString());
         params.add("oldPassword",getOldPassword());
         params.add("newPassword",getNewPassword());
-        client.post(ServerInfo.BASE_URL+"AdminPasswordChange/",params,new JsonHttpResponseHandler(){
+        client.post(ServerInfo.BASE_URL+"UserPasswordChange/",params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 try {
