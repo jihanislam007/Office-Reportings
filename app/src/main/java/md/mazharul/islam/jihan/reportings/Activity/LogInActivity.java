@@ -2,7 +2,11 @@ package md.mazharul.islam.jihan.reportings.Activity;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -20,6 +24,7 @@ import android.widget.Toast;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
+import com.loopj.android.http.ResponseHandlerInterface;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -30,6 +35,7 @@ import java.util.List;
 import java.util.TooManyListenersException;
 
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.HttpResponse;
 import md.mazharul.islam.jihan.reportings.Offline.OfflineInfo;
 import md.mazharul.islam.jihan.reportings.R;
 import md.mazharul.islam.jihan.reportings.ServerInfo.ServerInfo;
@@ -94,7 +100,9 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             requestPermissions(new String[]{
                     Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.WRITE_EXTERNAL_STORAGE
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.ACCESS_NETWORK_STATE,
+                    Manifest.permission.WRITE_EXTERNAL_STORAGE,
             }, 1);
         }
     }
@@ -243,6 +251,16 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                 @Override
                 public void onClick(View v) {
 
+                    if(!isConnected(LogInActivity.this)){
+                        Toast.makeText(LogInActivity.this,"No internet connection available.Please connect with internet",Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+
+                    final ProgressDialog dialog = ProgressDialog.show(LogInActivity.this, "",
+                            "Login ... Please wait...", true);
+                    dialog.show();
+
                     AsyncHttpClient client = new AsyncHttpClient();
                     RequestParams params = new RequestParams();
                     params.add("username", user_name.getText().toString());
@@ -267,6 +285,10 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
 
                             }
                         }
+                        @Override
+                        public void onPostProcessResponse(ResponseHandlerInterface instance, HttpResponse response) {
+                            dialog.dismiss();
+                        }
                     });
 
 
@@ -278,6 +300,17 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
             logIn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+
+                    if(!isConnected(LogInActivity.this)){
+                        Toast.makeText(LogInActivity.this,"No internet connection available.Please connect with internet",Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+
+                    final ProgressDialog dialog = ProgressDialog.show(LogInActivity.this, "",
+                            "Login ... Please wait...", true);
+                    dialog.show();
 
                     AsyncHttpClient client = new AsyncHttpClient();
                     RequestParams params = new RequestParams();
@@ -302,6 +335,10 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
                             } catch (JSONException e) {
 
                             }
+                        }
+                        @Override
+                        public void onPostProcessResponse(ResponseHandlerInterface instance, HttpResponse response) {
+                            dialog.dismiss();
                         }
                     });
 
@@ -330,5 +367,15 @@ public class LogInActivity extends Activity implements AdapterView.OnItemSelecte
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    static public boolean isConnected(Context context) {
+        boolean hasConnection;
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        hasConnection = activeNetwork != null && activeNetwork.isConnectedOrConnecting();
+
+        return hasConnection;
     }
 }
